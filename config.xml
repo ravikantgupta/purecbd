@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ebusindia.bus" version="4.3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>ebusindia</name>
+<widget id="com.pure.cbd" version="4.3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Pure CBD</name>
     <description>
-        Online volvo bus booking | AC Volvo Bus Booking Online Services
+        Pure cbd medical
     </description>
-    <author email="info@ebusindia.in" href="https://www.ebusindia.in">
+    <author email="info@wps-dev.com" href="https://wps-dev.com/">
        Webidea team
     </author>
     <content src="index.html" />
