@@ -19,6 +19,7 @@
 	<plugin name="phonegap-plugin-push"  spec="1.9.0"/>
     <plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
 	
+	<gap:plugin name="com.paypal.cordova.mobilesdk" source="npm" />
 
 	<platform name="android">
         <icon density="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
