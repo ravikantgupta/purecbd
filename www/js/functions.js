@@ -119,13 +119,11 @@ function main()
 		<li><a onClick="nextpage(\'my-cart.html\')"><span class="sidbar-icon"><img src="images/list6.jpg" alt=""></span>My Cart <span\
 					class="cart-rt-dtl">5</span></a></li>\
 		<li><a href="#"><span class="sidbar-icon"><img src="images/list5.jpg" alt=""></span>My Wallet</a></li>\
-		<li><a href="#"><span class="sidbar-icon"><img src="images/list4.jpg" alt=""></span>Offer Zone</a></li>\
 	</ul>\
 	<p class="other-pr">Others</p>\
 	<ul class="cust-support">\
 		<li><a href="#"><span class="sidbar-icon"><img src="images/list3.jpg" alt=""></span>Customer Support</a>\
 		</li>\
-		<li><a href="#"><span class="sidbar-icon"><img src="images/list2.jpg" alt=""></span>Rate us</a></li>\
 		<li><a href="#"><span class="sidbar-icon"><img src="images/list1.jpg" alt=""></span>Share</a></li>\
 	</ul>';
 	
@@ -149,6 +147,13 @@ function main()
 
 }
 
+function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
 	
 function logout() {
 

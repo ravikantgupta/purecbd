@@ -16,7 +16,11 @@ a:hover {
 .header {
     background-color: #006837;
     padding-top: 15px;
-    padding-bottom: 8px;
+    padding-bottom: 2px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 .header-nave {
@@ -142,10 +146,12 @@ a:hover {
 
 .header-categories {
     display: flex;
+    height: 45px;
 }
 
 .header-categories-box {
     width: 40%;
+
 }
 
 .header-categories-box2 {
@@ -155,6 +161,7 @@ a:hover {
 .banner-img img {
     width: 100%;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 .banner-img {
@@ -164,6 +171,7 @@ a:hover {
 
 .app-banner {
     position: relative;
+    margin-top: 95px;
 }
 
 .app-banner .owl-theme .owl-controls {
@@ -397,6 +405,9 @@ section.cbd-nav-header {
     position: relative;
 }
 
+.product-list-banner {
+    margin-top: 50px;
+}
 .list-banner img {
     width: 100%;
     height: 100%;
@@ -654,6 +665,7 @@ section.cbd-nav-header {
 }
 .cart-box {
     margin-bottom: 75px;
+    margin-top: 65px;
 }
 
 
