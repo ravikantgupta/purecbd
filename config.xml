@@ -18,7 +18,7 @@
    
 	<plugin name="phonegap-plugin-push"  spec="1.9.0"/>
     <plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
-	
+	<uses-sdk tools:overrideLibrary="org.apache.cordova,com.library.plugin" />
 	<gap:plugin name="com.paypal.cordova.mobilesdk" source="npm" />
 
 	<platform name="android">
@@ -31,9 +31,7 @@
 	 <resource-file src="google-services.json" target="app/google-services.json" />   
 
    </platform>
-    <config-file platform="android" parent="/manifest">
-    <uses-sdk tools:overrideLibrary="org.apache.cordova,com.library.plugin" />
-</config-file>
+   
    <splash qualifier="ldpi" platform="android" src="www/res/screen/android/screen-ldpi-landscape.png" />
         <splash qualifier="mdpi" platform="android" src="www/res/screen/android/screen-mdpi-landscape.png" />
         <splash qualifier="xhdpi" platform="android" src="www/res/screen/android/screen-xhdpi-landscape.png" />
