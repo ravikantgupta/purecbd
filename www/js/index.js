@@ -51,7 +51,7 @@ var app = {
     },
     initPaymentUI : function () {
       var clientIDs = {
-        "PayPalEnvironmentProduction": "YOUR_PRODUCTION_CLIENT_ID",
+        "PayPalEnvironmentProduction": "rvgupta444@gmail.com",
         "PayPalEnvironmentSandbox": "YOUR_SANDBOX_CLIENT_ID"
       };
       PayPalMobile.init(clientIDs, app.onPayPalMobileInit);
@@ -80,11 +80,7 @@ var app = {
       return config;
     },
     onPrepareRender : function() {
-      // buttons defined in index.html
-      //  <button id="buyNowBtn"> Buy Now !</button>
-      //  <button id="buyInFutureBtn"> Pay in Future !</button>
-      //  <button id="profileSharingBtn"> ProfileSharing !</button>
-      //  <button id="cardScanBtn">Advanced: Use card.io scan only</button>
+        alert('buy');  
       var buyNowBtn = document.getElementById("buyNowBtn");
       var buyInFutureBtn = document.getElementById("buyInFutureBtn");
       var profileSharingBtn = document.getElementById("profileSharingBtn");
