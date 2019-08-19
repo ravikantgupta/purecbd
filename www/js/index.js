@@ -19,7 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-		alert('inslize');
+	
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -27,7 +27,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-		alert('devicebind');
+		
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
@@ -35,7 +35,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-		alert('deviceready');
+		
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
@@ -84,14 +84,14 @@ var app = {
       return config;
     },
     onPrepareRender : function() {
-        alert('buy');  
+         
       var buyNowBtn = document.getElementById("buyNowBtn");
       var buyInFutureBtn = document.getElementById("buyInFutureBtn");
       var profileSharingBtn = document.getElementById("profileSharingBtn");
       var cardScanBtn = document.getElementById("cardScanBtn");
 
       buyNowBtn.onclick = function(e) {
-        alert('buy');
+        
         PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment, app.onUserCanceled);
       };
 
