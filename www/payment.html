@@ -15,11 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap&subset=latin-ext,vietnamese"
         rel="stylesheet">
-         <script type="text/javascript" src="cordova.js"></script>     
-        <script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
-        <script type="text/javascript" src="js/functions.js"></script>
-    <!-- Bootstrap CSS -->
+       
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
@@ -31,15 +27,7 @@
 </head>
 
 <body>
-<script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-      main();
-    
-
-    });
-
-</script>
     <div class="header">
         <div class="container">
             <div class="header-nave">
@@ -84,40 +72,13 @@
 
     
 
-  <div id="mySidenav" class="sidenav">
-        <div class="sidbar-box-head" id="sidenavcontainer">
-           
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/lightbox-plus-jquery.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
-
-    <script>
-        $('.cbd-header-product').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            dots: false,
-            // autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 3
-                },
-                600: {
-                    items: 3
-                },
-                990: {
-                    items: 3
-                },
-
-            }
-        });
+  
+<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
+       
+    <script type="text/javascript">
+        app.initialize();
     </script>
 
 </body>
