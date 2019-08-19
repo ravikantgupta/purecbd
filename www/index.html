@@ -13,6 +13,9 @@
     <link
         href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap&subset=latin-ext,vietnamese"
         rel="stylesheet">
+        <script type="text/javascript" src="cordova.js"></script>     
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -49,17 +52,12 @@
                         <div class="input-group">
                             <select class="form-control" id="exampleFormControlSelect1">
                                 <option>categories</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <option>categories1</option>
+                                <option>categories2</option>
+                                <option>categories3</option>
+                                <option>categories4</option>
                             </select>
-                            <!-- <select class="custom-select" id="inputGroupSelect04">
-                                <option>categories</option>
-                                <option>One</option>
-                                <option>Two</option>
-                                <option>Three</option>
-                            </select>                    -->
+                            
                         </div>
                     </div>
                 </div>
@@ -91,7 +89,7 @@
                     <div class="cbd-oil">
                         <h4>purekana cbd oil</h4>
 
-                        <a class="buy-pdct" href="#"> buy now</a>
+                        <a class="buy-pdct" onclick="productdetal()"> buy now</a>
                     </div>
                 </div>
                 <div class="item">
@@ -101,7 +99,7 @@
                     <div class="cbd-oil">
                         <h4>purekana cbd oil</h4>
 
-                        <a class="buy-pdct" href="#"> buy now</a>
+                        <a class="buy-pdct" onclick="productdetal()"> buy now</a>
                     </div>
                 </div>
                 <div class="item">
@@ -111,7 +109,7 @@
                     <div class="cbd-oil">
                         <h4>purekana cbd oil</h4>
 
-                        <a class="buy-pdct" href="#"> buy now</a>
+                        <a class="buy-pdct" onclick="productdetal()"> buy now</a>
                     </div>
                 </div>
                 <div class="item">
@@ -121,7 +119,7 @@
                     <div class="cbd-oil">
                         <h4>purekana cbd oil</h4>
 
-                        <a class="buy-pdct" href="#"> buy now</a>
+                        <a class="buy-pdct" onclick="productdetal()"> buy now</a>
                     </div>
                 </div>
             </div>
@@ -136,7 +134,7 @@
             <div class="shop-category-cbd">
                 <div class="item">
                     <div class="shop-category-oil">
-                        <a href="#">
+                        <a onclick="productdetal()">
                             <div class="category-cbd">
                                 <img src="images/1000-ISO.jpg" alt="">
                             </div>
@@ -150,7 +148,7 @@
                 </div>
                 <div class="item">
                     <div class="shop-category-oil">
-                        <a href="#">
+                        <a onclick="productdetal()">
                             <div class="category-cbd">
                                 <img src="images/1000-ISO.jpg" alt="">
                             </div>
@@ -164,7 +162,7 @@
                 </div>
                 <div class="item">
                     <div class="shop-category-oil">
-                        <a href="#">
+                        <a onclick="productdetal()">
                             <div class="category-cbd">
                                 <img src="images/1000-ISO.jpg" alt="">
                             </div>
@@ -189,7 +187,7 @@
             <div class="shop-category-cbd category-shop">
                 <div class="item">
                     <div class="shop-category-oil">
-                        <a href="#">
+                        <a onclick="productdetal()">
                             <div class="category-cbd">
                                 <img src="images/1000-ISO.jpg" alt="">
                             </div>
@@ -202,7 +200,7 @@
                 </div>
                 <div class="item">
                     <div class="shop-category-oil">
-                        <a href="#">
+                        <a onclick="productdetal()">
                             <div class="category-cbd">
                                 <img src="images/1000-ISO.jpg" alt="">
                             </div>
@@ -215,7 +213,7 @@
                 </div>
                 <div class="item">
                     <div class="shop-category-oil">
-                        <a href="#">
+                        <a onclick="productdetal()">
                             <div class="category-cbd">
                                 <img src="images/1000-ISO.jpg" alt="">
                             </div>
@@ -258,17 +256,17 @@
             <div class="seeshop-box">
                 <div class="item">
                     <div class="seeshop-iner-box">
-                        <img src="images/seedhop.jpg" alt="">
+                        <img onclick="productdetal()" src="images/seedhop.jpg" alt="">
                     </div>
                 </div>
                 <div class="item">
                     <div class="seeshop-iner-box">
-                        <img src="images/seedhop2.jpg" alt="">
+                        <img onclick="productdetal()" src="images/seedhop2.jpg" alt="">
                     </div>
                 </div>
                 <div class="item">
                     <div class="seeshop-iner-box">
-                        <img src="images/seedhop3.jpg" alt="">
+                        <img onclick="productdetal()" src="images/seedhop3.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -277,49 +275,10 @@
 
 
     <div id="mySidenav" class="sidenav">
-        <div class="sidbar-box-head">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="sidbar-header">
-                <a class="profile-box" href="#"> <span class="profile"><img src="images/all.jpg" alt=""></span>
-                    <span>Raj
-                        Sharma</span></a>
-            </div>
-            <ul class="sidbar-listing">
-                <li><a href="#"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By
-                        Category</a>
-                    <ol class="sidbar-olist">
-                        <li><a href="#">-&nbsp;CBD Oil</a></li>
-                        <li><a href="#">-&nbsp;CBD Edibleas</a></li>
-                        <li><a href="#">-&nbsp;CBD Topicals</a></li>
-                        <li><a href="#">-&nbsp;CBD Edibles</a></li>
-                    </ol>
-                </li>
-                <li><a href="#"><span class="sidbar-icon"><img src="images/list7.jpg" alt=""></span>My Oreders</a></li>
-                <li><a href="#"><span class="sidbar-icon"><img src="images/list6.jpg" alt=""></span>My Cart <span
-                            class="cart-rt-dtl">5</span></a></li>
-                <li><a href="#"><span class="sidbar-icon"><img src="images/list5.jpg" alt=""></span>My Wallet</a></li>
-                <li><a href="#"><span class="sidbar-icon"><img src="images/list4.jpg" alt=""></span>Offer Zone</a></li>
-            </ul>
-            <p class="other-pr">Others</p>
-            <ul class="cust-support">
-                <li><a href="#"><span class="sidbar-icon"><img src="images/list3.jpg" alt=""></span>Customer Support</a>
-                </li>
-                <li><a href="#"><span class="sidbar-icon"><img src="images/list2.jpg" alt=""></span>Rate us</a></li>
-                <li><a href="#"><span class="sidbar-icon"><img src="images/list1.jpg" alt=""></span>Share</a></li>
-            </ul>
-
-            <div class="logout">
-                <a href="#"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a>
-            </div>
+        <div class="sidbar-box-head" id="sidenavcontainer">
+           
         </div>
     </div>
-
-
-
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
