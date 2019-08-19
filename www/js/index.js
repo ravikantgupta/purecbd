@@ -40,7 +40,7 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
+      /*  var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
@@ -49,7 +49,8 @@ var app = {
 
         console.log('Received Event: ' + id);
 
-        // start to initialize PayPalMobile library
+        // start to initialize PayPalMobile library */
+		alert('recvd event');
         app.initPaymentUI();
     },
     initPaymentUI : function () {
