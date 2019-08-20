@@ -17,25 +17,71 @@
         rel="stylesheet">
          
         <script type="text/javascript" src="js/functions.js"></script>
+		<script type="text/javascript" src="js/catalog.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/lightbox.css">
     <link rel="stylesheet" href="css/style.css">
-
-
-
 </head>
 
-<body>
+<body onload="setvalue()" id="bodycontainer">
 <script>
 
     document.addEventListener('DOMContentLoaded', function () {
       main();
-    
-
     });
+	
+	function setvalue()
+		{  
+		   
+		   var current_cat_slug= window.localStorage.getItem("current_cat_slug");
+		     $.ajax({	    	
+			           type:'POST',						
+						url:"https://purecbdgroup.com/api.php/productlist",
+						data:'category='+current_cat_slug,
+						success:function(data)
+						{	
+                             var prolisthtml='<section class="shop-category"><div class="container"><div class="shop-category-cbd">';						
+							if(data.status)
+							{
+							  var i=0;
+							  $.each(data.product, function(index) {
+							    if(i==2)
+									 {
+									   prolisthtml+='</div></div></section><section class="shop-category"><div class="container"><div class="shop-category-cbd">';
+									    i=0;
+									 }
+							        prolisthtml+='<div class="shop-category-oil">\
+												<a onclick="productdetal()">\
+													<div class="category-cbd">\
+														<img style="width:249px;height:249px;" src="'+data.product[index].img+'" alt="">\
+													</div>\
+													<div class="category-text best-selling">\
+														<p>'+data.product[index].product_name+'</p>\
+														<span class="category-cbd-icon">'+data.product[index].currency+data.product[index].regular_price+'</span>\
+													</div>\
+												</a>\
+											</div>';									
+									i++; 
+											
+							  });
+							}else
+							{
+							  prolisthtml+='<div class="shop-category-oil">Product not found.</div>';
+							}
+							
+						   prolisthtml+='</div></div></section>';	
+						    jQuery('#lodinggif').hide();
+                           jQuery('#mySidenav').before( prolisthtml);
+						},
+						error: function(e) {
+							alert('Error: ' + e.message);
+						}
+				});
+		   
+		}   
 
 </script>
     <div class="header">
@@ -49,7 +95,7 @@
                         <a href="#"> <i class="fa fa-heart-o" aria-hidden="true"></i></a>
                     </span>
                     <span class="cart-icon"> <a onclick="nextpage('my-cart.html')"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span
-                                class="zero"> 2</span> </a></span>
+                                class="zero"> 0</span> </a></span>
                 </div>
             </div>
 
@@ -93,114 +139,20 @@
         </div>
     </section>
 
-    <section class="shop-category">
+    <section class="shop-category" id="lodinggif">
         <div class="container">
-            <!-- <div class="category-had">
-                    <h4>best selling products</h4>
-                </div> -->
+           
             <div class="shop-category-cbd">
 
-                <div class="shop-category-oil">
-                    <a onclick="productdetal()">
-                        <div class="category-cbd">
-                            <img src="images/1000-ISO.jpg" alt="">
-                        </div>
-                        <div class="category-text best-selling">
-                            <p>strawberry ak</p>
-                            <span class="category-cbd-icon">&amp;149,00</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="shop-category-oil">
-                    <a onclick="productdetal()">
-                        <div class="category-cbd">
-                            <img src="images/1000-ISO.jpg" alt="">
-                        </div>
-                        <div class="category-text best-selling">
-                            <p>eco props</p>
-                            <span class="category-cbd-icon">&amp;149,00</span>
-                        </div>
-                    </a>
-                </div>
+             <img  src="images/loading.gif" style="height: 115px;margin-top: 50%;
+    margin-left: 37%;" alt="">
 
             </div>
 
         </div>
     </section>
 
-    <section class="shop-category">
-        <div class="container">
-            <!-- <div class="category-had">
-                        <h4>best selling products</h4>
-                    </div> -->
-            <div class="shop-category-cbd">
-
-                <div class="shop-category-oil">
-                    <a onclick="productdetal()">
-                        <div class="category-cbd">
-                            <img src="images/1000-ISO.jpg" alt="">
-                        </div>
-                        <div class="category-text best-selling">
-                            <p>strawberry ak</p>
-                            <span class="category-cbd-icon">&amp;149,00</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="shop-category-oil">
-                    <a onclick="productdetal()">
-                        <div class="category-cbd">
-                            <img src="images/1000-ISO.jpg" alt="">
-                        </div>
-                        <div class="category-text best-selling">
-                            <p>eco props</p>
-                            <span class="category-cbd-icon">&amp;149,00</span>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section class="shop-category btm-mrgn">
-        <div class="container">
-            <!-- <div class="category-had">
-                            <h4>best selling products</h4>
-                        </div> -->
-            <div class="shop-category-cbd">
-
-                <div class="shop-category-oil">
-                    <a onclick="productdetal()">
-                        <div class="category-cbd">
-                            <img src="images/1000-ISO.jpg" alt="">
-                        </div>
-                        <div class="category-text best-selling">
-                            <p>strawberry ak</p>
-                            <span class="category-cbd-icon">&amp;149,00</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="shop-category-oil">
-                    <a onclick="productdetal()">
-                        <div class="category-cbd">
-                            <img src="images/1000-ISO.jpg" alt="">
-                        </div>
-                        <div class="category-text best-selling">
-                            <p>eco props</p>
-                            <span class="category-cbd-icon">&amp;149,00</span>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
+  
   <div id="mySidenav" class="sidenav">
         <div class="sidbar-box-head" id="sidenavcontainer">
            
@@ -208,7 +160,7 @@
     </div>
  <script type="text/javascript" src="cordova.js"></script>     
        
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/lightbox-plus-jquery.min.js"></script>

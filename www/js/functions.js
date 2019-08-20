@@ -109,10 +109,10 @@ function main()
 		<li><a onClick="nextpage(\'index.html\')"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
 				Category</a>\
 			<ol class="sidbar-olist">\
-				<li><a onClick="nextpage(\'product-list.html\')">-&nbsp;CBD Oil</a></li>\
-				<li><a onClick="nextpage(\'product-list.html\')">-&nbsp;CBD Edibleas</a></li>\
-				<li><a onClick="nextpage(\'product-list.html\')">-&nbsp;CBD Topicals</a></li>\
-				<li><a onClick="nextpage(\'product-list.html\')">-&nbsp;CBD Edibles</a></li>\
+				<li><a onClick="categoryproducts(\'cbd-bath-body\')">-&nbsp;CBD Bath & Body</a></li>\
+				<li><a onClick="categoryproducts(\'cbd-beverages\')">-&nbsp;CBD Beverages</a></li>\
+				<li><a onClick="categoryproducts(\'cbd-edibles\')">-&nbsp;CBD Edibles</a></li>\
+				<li><a onClick="categoryproducts(\'cbd-wellness\')">-&nbsp;CBD Health & Wellness</a></li>\
 			</ol>\
 		</li>\
 		<li><a href="#"><span class="sidbar-icon"><img src="images/list7.jpg" alt=""></span>My Oreders</a></li>\

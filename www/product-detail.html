@@ -14,19 +14,35 @@
         rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap&subset=latin-ext,vietnamese"
-        rel="stylesheet">
-          
-       
+        rel="stylesheet">      
         <script type="text/javascript" src="js/functions.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">   
     <link rel="stylesheet" href="css/style.css">
 	</head>
-<body>
+<body onload="setvalue()">
+<script>   
+	function setvalue()
+		{  
+		   
+		   var current_product_id= window.localStorage.getItem("current_product_id");
+		     $.ajax({	    	
+			           type:'POST',						
+						url:"https://purecbdgroup.com/api.php/product_details",
+						data:'product_id=532',
+						success:function(data)
+						{	
+                           console.log(data);  
+						},
+						error: function(e) {
+							alert('Error: ' + e.message);
+						}
+				});
+		   
+		}   
 
+</script>
     <div class="header">
         <div class="container">
             <div class="header-nave  detail-nave">
@@ -140,11 +156,10 @@
         </div>
     </section>
 	 <script type="text/javascript" src="cordova.js"></script>  
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/lightbox-plus-jquery.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
+   
 </body>
 
 </html>
