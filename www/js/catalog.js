@@ -70,4 +70,26 @@ function productdetal(productid)
               "href" : "product-list.html"
           });
 }
+
+function searchProduct()
+{
+	var search_cat_slug=jQuery("#productcategory").val();	
+    var search_product_name=jQuery("#productname").val();   
+      if(search_product_name=='')
+	  {
+		jQuery('#productname').css('border', '1px solid red');
+		setTimeout(function(){ jQuery('#productname').css('border', ''); },2000);
+		return false;
+	  }	
+	  
+	window.localStorage.setItem("search_cat_slug", search_cat_slug);
+	window.localStorage.setItem("search_product_name", search_product_name);
+	
+	 window.plugins.nativepagetransitions.slide({
+              "direction" : "left",
+			   "duration":1000,
+			   "androiddelay":  400,
+              "href" : "product-search.html"
+          });
+}
  
