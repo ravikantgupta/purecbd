@@ -30,33 +30,36 @@
 <script>
 
     document.addEventListener('DOMContentLoaded', function () {
-      main();
+      catmain();
     });
 	
 	function setvalue()
 		{  
 		   
 		   var current_cat_slug= window.localStorage.getItem("current_cat_slug");
+		    
+			   jQuery('.catlist').remove();
+			   jQuery('#lodinggif').show();
 		     $.ajax({	    	
 			           type:'POST',						
 						url:"https://purecbdgroup.com/api.php/productlist",
 						data:'category='+current_cat_slug,
 						success:function(data)
 						{	
-                             var prolisthtml='<section class="shop-category"><div class="container"><div class="shop-category-cbd">';						
+                             var prolisthtml='<section class="shop-category catlist"><div class="container"><div class="shop-category-cbd">';						
 							if(data.status)
 							{
 							  var i=0;
 							  $.each(data.product, function(index) {
 							    if(i==2)
 									 {
-									   prolisthtml+='</div></div></section><section class="shop-category"><div class="container"><div class="shop-category-cbd">';
+									   prolisthtml+='</div></div></section><section class="shop-category catlist"><div class="container"><div class="shop-category-cbd">';
 									    i=0;
 									 }
-							        prolisthtml+='<div class="shop-category-oil">\
+							        prolisthtml+='<div class="shop-category-oil" style="width:50%;">\
 												<a onclick="productdetal()">\
 													<div class="category-cbd">\
-														<img style="width:249px;height:249px;" src="'+data.product[index].img+'" alt="">\
+														<img style="height:249px;" src="'+data.product[index].img+'" alt="">\
 													</div>\
 													<div class="category-text best-selling">\
 														<p>'+data.product[index].product_name+'</p>\
@@ -153,7 +156,7 @@
     </section>
 
   
-  <div id="mySidenav" class="sidenav">
+  <div id="mySidenav" class="sidenav" onclick="closeNav()">
         <div class="sidbar-box-head" id="sidenavcontainer">
            
         </div>

@@ -46,7 +46,23 @@ function setcategorydropdown(data)
 
 function categoryproducts(catslug)
 {
-	window.localStorage.setItem("current_cat_slug", catslug);
+	 window.localStorage.setItem("current_cat_slug", catslug);
+	 window.plugins.nativepagetransitions.slide({
+              "direction" : "left",
+			   "duration":1000,
+			   "androiddelay":  400,
+              "href" : "product-list.html"
+          });
+}
+function categoryproductsCat(catslug)
+{
+	 window.localStorage.setItem("current_cat_slug", catslug);
+	 setvalue();
+}
+
+function productdetal(productid)
+{
+	window.localStorage.setItem("current_product_id", productid);
 	 window.plugins.nativepagetransitions.slide({
               "direction" : "left",
 			   "duration":1000,
