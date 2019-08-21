@@ -27,13 +27,24 @@
 		{  
 		   
 		   var current_product_id= window.localStorage.getItem("current_product_id");
+		   
 		     $.ajax({	    	
 			           type:'POST',						
 						url:"https://purecbdgroup.com/api.php/product_details",
-						data:'product_id=532',
+						data:JSON.stringify({'product_id':current_product_id}),						
+						contentType: 'application/json',
 						success:function(data)
 						{	
-                           console.log(data);  
+						  
+                          if(data.status) 
+						  {
+						     jQuery('#product_image').attr('src',data.product_data.product_image);
+						    jQuery('#product_name').html(data.product_data.product_name);
+							jQuery('#product_price').html('price: '+data.currency+data.product_data.product_price);
+						    
+						  }
+						  jQuery('.loader').hide();
+						  jQuery('.mask').hide();
 						},
 						error: function(e) {
 							alert('Error: ' + e.message);
@@ -50,11 +61,9 @@
                     <a onclick="bakpage('product-list.html')"><img src="images/left-arrow.png" alt=""></i></a>
                 </span>
                 <div class="header-icon">
-                    <span class="heart-icon">
-                        <a > <i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                    </span>
+                   
                     <span class="cart-icon"> <a onclick="nextpage('my-cart.html')"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span
-                                class="zero"> 2</span> </a></span>
+                                class="zero"> 0</span> </a></span>
                 </div>
             </div>
         </div>
@@ -63,11 +72,8 @@
     <section class="product-list-banner">
 
         <div class="list-banner">
-            <img src="images/Natures-Script-Banner.png" alt="">
-
-            <span class="list-heart-icon">
-                <a href="#"> <i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            </span>
+            <img src="images/Natures-Script-Banner.png" id="product_image" alt="">
+           
         </div>
 
     </section>
@@ -75,11 +81,11 @@
     <section class="list-detail-rate">
         <div class="container">
             <div class="listing-detail-box">
-                <h6>strawberry ak terpense 100MG</h6>
+                <h6 id="product_name"></h6>
             </div>
             <div class="price-box">
                 <div class="price-iner-box">
-                    <p>price: $149.00</p>
+                    <p id="product_price"></p>
                 </div>
                 <div class="price-iner-box">
                     <span class="add-list">
@@ -87,7 +93,7 @@
                     </span>
                 </div>
             </div>
-            <div class="list-unit">
+            <div class="list-unit" style="display:none;">
                 <div class="unit">
                     <p>UNIT</p>
                 </div>
@@ -155,6 +161,14 @@
             </div>
         </div>
     </section>
+	<div class="loader" style="position: absolute;top: 20%;left: 21%;z-index:999; ">
+     <img  src="images/loading.gif" style="height: 115px;margin-top: 50%;
+    margin-left: 37%;" alt="">
+      </div>
+	  <div class="mask"></div>
+	  <style>
+	  .mask{ position:fixed; background:#000; left:0px; top:0px; right:0px; bottom:0px; opacity:0.6; z-index:99; }
+	  </style>
 	 <script type="text/javascript" src="cordova.js"></script>  
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/popper.min.js"></script>

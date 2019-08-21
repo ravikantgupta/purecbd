@@ -67,7 +67,7 @@ function productdetal(productid)
               "direction" : "left",
 			   "duration":1000,
 			   "androiddelay":  400,
-              "href" : "product-list.html"
+              "href" : "product-detail.html"
           });
 }
 

@@ -37,7 +37,7 @@
 		{  
 		   
 		   var current_cat_slug= window.localStorage.getItem("current_cat_slug");
-		    
+		    current_cat_slug='cbd-pets';
 			   jQuery('.catlist').remove();
 			   jQuery('#lodinggif').show();
 		     $.ajax({	    	
@@ -46,7 +46,7 @@
 						data:'category='+current_cat_slug,
 						success:function(data)
 						{	
-                             var prolisthtml='<section class="shop-category catlist"><div class="container"><div class="shop-category-cbd">';						
+                           var prolisthtml='<section class="shop-category catlist"><div class="container"><div class="shop-category-cbd">';						
 							if(data.status)
 							{
 							  var i=0;
@@ -57,7 +57,7 @@
 									    i=0;
 									 }
 							        prolisthtml+='<div class="shop-category-oil" style="width:50%;">\
-												<a onclick="productdetal()">\
+												<a onclick="productdetal('+data.product[index].product_id+')">\
 													<div class="category-cbd">\
 														<img style="height:249px;" src="'+data.product[index].img+'" alt="">\
 													</div>\
