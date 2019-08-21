@@ -595,7 +595,7 @@ section.cbd-nav-header {
 /* ----------------------my-cart-------------------------- */
 
 .nav-logo {
-    width: 120px !important;
+    width:200px !important;
     line-height: 24px;
 }
 .nav-logo img {
@@ -809,5 +809,255 @@ ol.sidbar-olist li a:hover {
     font-size: 17px;
     vertical-align: middle;
 }
+/**********************************sing-up-pages*************************************/
+.main-sign-box{
+    padding: 25px;
+    background: #fff;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+ }
+ .sign-titile{
+     text-align: center;
+     padding: 25px;
+     font-size: 25px;
+     color: #c89625;
+ 
+ }
+ .sign-titile h1 {
+     font-size: 30px;
+ }
+ .form-box .form-control {
+     padding-left: 0;
+     color: rgba(0, 0, 0, 0.7);
+     border: none;
+     border-bottom: 1px solid #E0E0E0;
+     border-radius: 0;
+     height: 45px;
+     font-size: 14px;
+     font-weight: 500;
+ }
+ .form-box input{
+     color: #000!important;
+ 
+ }
+ .form-box .form-control-placeholder {
+     position: absolute;
+     top: 0;
+     padding: 7px 0 0 0;
+     transition: all 200ms;
+     opacity: 0.5;
+     font-size: 16px;
+     line-height: 16px;
+     text-transform: uppercase;
+     cursor: text;
+     pointer-events: none;
+ }
+ .form-box .form-group{
+     width: 100%;
+     position: relative;
+     padding-bottom: 25px;
+ }
+ .form-control:focus {
+     box-shadow: none;
+ }
+
+ .lableup .form-control-placeholder, .form-control:focus+.form-control-placeholder  {
+     font-size: 12px;
+     transform: translate3d(0, -100%, 0);
+     opacity: 0.8;
+     top: 0px;
+ }
+ .sign-btn{
+     width: 100%;
+     height: 50px;
+     font-size: 20px;
+     border-radius:50px;
+     text-transform: uppercase;
+     border: none;
+     background: #006837;
+     color: #fff;
+     position: relative;
+     cursor: pointer;
+ }
+ .sign-btn img {
+     width: 20px;
+     transform: rotat(-7px);
+     transform: rotatey(-180deg);
+     position: absolute;
+     top: 18px;
+     right: 15px;
+ }
+ .forget-password{
+     text-align: center;
+     padding: 25px 0;
+ } 
+ .forget-password a{
+     color: #000;
+ } 
+ .line-box{
+     border-bottom:1px dashed #ececec;
+     position: relative;
+     margin: 25px 0;
+ }
+ .line-box div {
+     left: 44%;
+     top: -22px;
+     padding: 10px;
+     border: 1px dashed #ececec;
+     position: absolute;
+     border-radius: 50%;
+     text-transform: uppercase;
+     color: #d0c7c7;
+     background: #fff;
+ }
+ .socal-btn-box{
+     display:flex;
+     justify-content: space-between;
+     padding: 25px 0;
+     margin-bottom: 60px;
+     
+ }
+ 
+ .socal-btn-box button {
+     width: 47%;
+     display: inline-block;
+     height: 50px;
+     font-weight: 500;
+     border-radius: 50px;
+     background: #fff;
+     border: 2px solid #55acee;
+     text-transform: uppercase;
+     font-size: 14px;
+     color: #55acee;
+     cursor: pointer;
+ }
+ .socal-btn-box .fb-btn{
+     border-color: #3b5998;
+     color: #3c5a99;
+ }
+ .sign-footer{
+     background: #323232;
+     padding: 25px;
+     text-align: center;
+     position: fixed;
+     bottom: 0;
+     left: 0;
+    width: 100%;
+ }
+ .sign-footer p{
+     margin: 0;
+     color: #c38c20;
+     font-size: 14px;
+ }
+ .sign-footer a{
+     color: #c38c20;
+     font-size:14px;
+     font-weight: 600;
+ }
+
+ /************************************orders--pages-css*************************/
+
+ .order-box{
+    width: 100%;
+    background:#fff;
+    border-radius: 3px;
+    padding: 15px 0 5px;
+    margin-bottom: 10px;
+
+ }
+ .oreder-title{
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ececec;
+    font-size: 14px;
+}
+.product-order-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 15px 15px;
+}
+.product-order-left{
+display: flex;
+justify-content: space-between;
+}
+.product-order-left .img-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.product-order-left .img-box img{
+    width: 100%;
+    height: 100%;
+}
+.product-order-left .text-info p{
+    font-size:14px;
+    color: #000;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.product-order-left .text-info span{
+    font-size: 12px;
+    color: #000;
+    font-weight: 400;
+}
+.product-order-left .text-info span img {
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+.product-order-left .text-info span.unactive{
+   color: #ca9227;
+}
+.product-order-left .text-info span.active{
+    color: #439f46;
+ }
+.product-order-right p{
+    font-size: 14px;
+    font-weight: 400;
+    min-height: 30px;
+}
+.product-order-right .review-btn{
+    font-size: 14px;
+    color: #006837;
+}
+
+.amount-paid-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 15px 12px;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+
+}
+
+.amount-paid-info span{
+    font-size: 14px;
+    color: #000;
+    font-weight: 400;
+}
+.amount-paid-info p{
+    margin: 0;
+    font-weight: 600;
+}
+.viwe-details{
+    padding: 10px 15px;
+   
+}
+.viwe-details a{
+    display: inline-block;
+    background: #ca9227;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 3px;
+    color: #fff;
+}
+
+
 
 
