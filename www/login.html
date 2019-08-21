@@ -58,9 +58,11 @@ function userlogin()
 						data: JSON.stringify({username: jQuery("#username").val(),password: jQuery("#password").val()}),										
 						success:function(data)
 							 {
-                                 console.log(data);  							 
+                                						 
 								  if(data.status)
 									  {
+									  alert('hi');
+									  alert(data.response_data.user_email);
 										 window.localStorage.setItem("loggedIn", 1);
 										 window.localStorage.setItem('login_user_id', data.response_data.id);
 										 window.localStorage.setItem('login_user_email', data.response_data.user_email); 

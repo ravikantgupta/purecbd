@@ -206,7 +206,9 @@ function openNav() {
 function logout() {
 
   window.localStorage.removeItem("loggedIn");
-  window.localStorage.removeItem("userid");  
+  window.localStorage.removeItem("login_user_id");  
+  window.localStorage.removeItem("login_user_email");  
+  window.localStorage.removeItem("login_user_name");  
   nextpage('login.html');
 
 }
