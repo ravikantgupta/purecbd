@@ -43,7 +43,7 @@ function main()
 	var menuhtm='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>\
 	 <div class="sidbar-header">\
 		<a class="profile-box" href="javascript:void(0)"> <span class="profile"><img src="images/all.jpg" alt=""></span>\
-			<span>'+window.localStorage.removeItem("login_user_name")+'</span></div>\
+			<span>'+window.localStorage.getItem("login_user_name")+'</span></div>\
 		<ul class="sidbar-listing">\
 		<li><a onClick="nextpage(\'index.html\')"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
 				Category</a>\
@@ -91,7 +91,7 @@ function catmain()
 	var menuhtm='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>\
 	 <div class="sidbar-header">\
 		<a class="profile-box" href="javascript:void(0)"> <span class="profile"><img src="images/all.jpg" alt=""></span>\
-			<span>'+window.localStorage.removeItem("login_user_name")+'</span></div>\
+			<span>'+window.localStorage.getItem("login_user_name")+'</span></div>\
 		<ul class="sidbar-listing">\
 		<li><a onClick="nextpage(\'index.html\')"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
 				Category</a>\

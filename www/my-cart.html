@@ -30,9 +30,14 @@
 function setvalue()
 		{ 				
 		  var login_user_id= window.localStorage.getItem("login_user_id");	
-          	  
+          	
 		  if(login_user_id)
-		  {	
+		  {
+               if(window.localStorage.getItem("successmsg"))
+				  {
+					jQuery("#msgstatus").addClass("alert-success").fadeIn(10).text(window.localStorage.getItem("successmsg"));
+					window.localStorage.removeItem('successmsg');
+				  }		  
 			  jQuery('.loader').show();
 			  jQuery('.mask').show();	  
 			  $.ajax({	    	
@@ -121,6 +126,10 @@ function setvalue()
     </div>
 
     <section class="cart-box">
+	 <div class="form-box">
+		    <div id="msgstatus" style="font-size:15px;"></div>
+			
+		  </div>
         <div class="container" id="cartlist">		
                 
 	   </div>
