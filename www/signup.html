@@ -27,11 +27,17 @@
 <script>
 function register()
 {
+  var nickname=jQuery('#nickname').val();
   var username=jQuery('#username').val();
   var email=jQuery('#email').val();
   var mobile=jQuery('#mobile').val();
   var password=jQuery('#password').val();
   var flag=0;
+  if(nickname=="")
+  {
+    jQuery('.nickname-error').show();
+    flag=1;
+  }
   if(username=="")
   {
     jQuery('.username-error').show();
@@ -63,9 +69,10 @@ function register()
            jQuery.ajax({					  
 						type:'POST',  
 						url:"https://purecbdgroup.com/api.php/register",
-						data: JSON.stringify({username: username,
-						                      email:email,
-						                      password: password,
+						data: JSON.stringify({user_login: username,
+						                      user_email:email,
+						                      user_pass: password,
+											  nickname:nickname,
 											  mobile:mobile											  
 											  }),										
 						success:function(data)
@@ -100,26 +107,31 @@ function register()
 		  </div>
         <div class="form-box">
             <form>
+			  <div class="form-group lableup">
+                    <input type="text" name="nickname" id="nickname" class="form-control" value="">
+                    <label class="form-control-placeholder" for="buisness">Name</label>
+					<span class="nickname-error error" style="color:red;display:none;">Please enter name.</span>
+                </div>
                 <div class="form-group lableup">
-                    <input type="text" name="username" id="username" class="form-control inputLableUp" value="">
+                    <input type="text" name="username" id="username" class="form-control" value="">
                     <label class="form-control-placeholder" for="buisness">username</label>
 					<span class="username-error error" style="color:red;display:none;">Please enter username.</span>
                 </div>
 
                 <div class="form-group lableup">
-                    <input type="email" name="email" id="email" class="form-control inputLableUp" value="">
+                    <input type="email" name="email" id="email" class="form-control" value="">
                     <label class="form-control-placeholder" for="buisness">email</label>
 					<span class="email-error error" style="color:red;display:none;">Please enter email.</span>
                 </div>
 
                 <div class="form-group lableup">
-                    <input type="number" name="mobile" id="mobile" class="form-control inputLableUp" value="">
+                    <input type="number" name="mobile" id="mobile" class="form-control" value="">
                     <label class="form-control-placeholder" for="buisness">mobile</label>
 					<span class="mobile-error error" style="color:red;display:none;">Please enter mobile.</span>
                 </div>
 
                 <div class="form-group lableup">
-                    <input type="password" name="password" id="password" class="form-control inputLableUp" value="">
+                    <input type="password" name="password" id="password" class="form-control" value="">
                     <label class="form-control-placeholder" for="buisness">password</label>
 					<span class="password-error error" style="color:red;display:none;">Please enter password.</span>
                 </div>
