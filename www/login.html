@@ -28,11 +28,17 @@
 <script type="text/javascript">
 function setvalue()
 	{ 
+		var loggedIn=	window.localStorage.getItem("loggedIn"); 
+		if(loggedIn)
+		 {
+		   nextpage('login.html');
+		 }
 	  if(window.localStorage.getItem("successmsg"))
 	  {
 	    jQuery("#msgstatus").addClass("alert-success").fadeIn(10).text(window.localStorage.getItem("successmsg"));
 		window.localStorage.removeItem('successmsg');
 	  }
+	  
 	}
 function userlogin()
 {		

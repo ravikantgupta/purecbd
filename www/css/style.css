@@ -1077,3 +1077,170 @@ justify-content: space-between;
 
 
 
+/* ---------------------------payment-option------------------------------ */
+.payment-option {
+    margin-top: 51px;
+    background-color: #fff;
+    padding: 20px 0 19px;
+    position: relative;
+}
+.total-para {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 300;
+}
+.doler-option {
+    float: right;
+    font-weight: 600;
+}
+.total-coler{
+    margin: 6px 0 0 0;
+    font-size: 11px;
+    font-weight: 300;
+    color: #866464;
+}
+.pay-amount {
+    margin-top: 40px;
+}
+
+.payment-option:before {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    content: '';
+    background-color: #f4f4f4;
+    bottom: 72px;
+}
+.pay-amount .total-coler {
+    margin: 0;
+}
+.pay-amount .doler-option {
+    line-height: 30px;
+}
+.pay-amount .total-para {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.cart-option {
+    background-color: #fff;
+    padding-top: 15px;
+    margin-bottom: 73px;
+}
+
+.discribtion .nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+.discribtion .nav-tabs .nav-link {
+    border: none;
+    background: none;
+}
+.discribtion .nav-link {
+    font-size: 12px;
+}
+.discribtion .nav-link:focus {
+    /* color: #ea4340; */
+    border-bottom: 1px solid #ea4340;
+    /* font-weight: 600; */
+}
+.discribtion .tab-content {
+    /* border-bottom: 2px solid #dee2e6; */
+    padding: 20px 0 0px 0;
+}
+.mob-1 {
+    color: #858585;
+    text-transform: capitalize;
+    font-weight: 400;
+    margin-left: 4px;
+    font-size: 12px;
+}
+
+.card-no {
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+.cart-option .form-control {
+    color: #a6a6a6 !important;
+    font-size: 13px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    height: 30px;
+    padding: 6px 10px;
+    margin-top: 1px;
+    font-size: 11px;
+}
+.cart-month .form-control{
+    /* border-bottom: 1px solid #fcfcfc; */
+}
+.payment-option-footer .add-total {
+    width: 100%;
+    text-align: right;
+}
+.payment-option-footer .add-total p {
+    text-transform: capitalize;
+    font-size: 14px;
+}
+.pay-add {
+    text-align: right;
+    padding: 10px 0;
+}
+.pay-btn {
+    padding: 5px 16px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    border-radius: 4px;
+}
+.pay-btn:focus {
+    outline: none;
+}
+.paypal-payble {
+    width: 150px;
+    height: 34px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 16px;
+}
+.paypal-payble img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.shipping {
+    padding: 10px 0;
+    background-color: #fff;
+    margin: 10px 0;
+}
+.CP-dtl {
+    margin: 13px 0;
+    font-size: 20px;
+}
+
+.shipping label {
+    font-size: 12px;
+}
+.shipping .form-control {
+    color: #a6a6a6 !important;
+    font-size: 11px;
+}
+.shipping .form-group {
+    margin-bottom: 6px;
+}
+.shipping-main-box {
+    display: flex;
+}
+.shipping-main-box .form-group {
+    margin-right: 14px;
+    width: 100%;
+}
+.shipping-main-box .form-group:last-child {
+    margin-right: 0;
+}
+.apartment-number {
+    margin-top: 15px;
+}
