@@ -13,7 +13,9 @@ function setcategorydropdown(data)
                                 <img src="'+data.category[index].category_image+'" alt="">\
                             </div>\
                             <div class="category-text">\
+							   <div class="category-text-box">\
                                 <p>'+data.category[index].name+'</p>\
+								</div>\
                                 <span class="category-cbd-icon"><i class="fa fa-arrow-right"\
                                         aria-hidden="true"></i></span>\
                             </div></a></div></div>';

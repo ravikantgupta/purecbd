@@ -56,6 +56,7 @@ function userlogin()
 						type:'POST',  
 						url:"https://purecbdgroup.com/api.php/login",
 						data: JSON.stringify({username: jQuery("#username").val(),password: jQuery("#password").val()}),										
+						contentType: 'application/json',
 						success:function(data)
 							 {
                                 						 
@@ -97,16 +98,16 @@ function userlogin()
         <div class="form-box">
 		
             <form>
-                <div class="form-group lableup">
-                    <input type="text" name="username" id="username" class="form-control" value="">
+                <div class="form-group">
+                    <input type="text" name="username" id="username" class="form-control inputLableUp" value="">
                     <label class="form-control-placeholder" for="buisness">username</label>
 					
                 </div>
 
               
              
-                <div class="form-group lableup">
-                    <input type="password" name="password" id="password" class="form-control" value="">
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control inputLableUp" value="">
                     <label class="form-control-placeholder" for="buisness">password</label>
                 </div>
 
@@ -141,11 +142,7 @@ function userlogin()
 
         $(document).ready(function () {
             $(".inputLableUp").focus(function () {
-                if ($(this).val() == '') {
-                    $(this).parent().removeClass('lableup');
-                } else {
-                    $(this).parent().addClass('lableup');
-                }
+                $(this).parent().addClass('lableup');
             }).blur(function () {
                 if ($(this).val() == '') {
                     $(this).parent().removeClass('lableup');

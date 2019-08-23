@@ -18,6 +18,7 @@
        
         <script type="text/javascript" src="js/functions.js"></script>
 		<script type="text/javascript" src="js/cart.js"></script>
+		<script type="text/javascript" src="js/catalog.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">   
@@ -28,7 +29,8 @@
 <script>
 function setvalue()
 		{ 				
-		  var login_user_id= window.localStorage.getItem("login_user_id");		 
+		  var login_user_id= window.localStorage.getItem("login_user_id");	
+          	  
 		  if(login_user_id)
 		  {	
 			  jQuery('.loader').show();
@@ -40,16 +42,15 @@ function setvalue()
 					contentType: 'application/json',
 					success:function(data)
 					{					  
-					  console.log(data);
-					  
+					 
 					  var carthtml='';						
-						if(data.status)
+						if(data.total_cart_item)
 						{
 						  var i=0;
 						  $.each(data.cart_list, function(index) {							  
 						  
 							 carthtml+='<div class="cart-iner-box">\
-								<div class="cart-product">\
+								<div class="cart-product" onclick="productdetal('+data.cart_list[index].product_id+')">\
 									<img src="images/strawberry.jpg" alt="">\
 								</div>\
 								<div class="cart-product-dtl">\
@@ -73,11 +74,11 @@ function setvalue()
 						  
 						}else
 						{
-						  carthtml+='<div class="cart-iner-box">Cart is empty.</div>';
+						  carthtml='<div class=""><center>Cart is empty.</center></div>';
 						    jQuery('.footer').hide();
 						}
 						
-											
+										
 					   jQuery('#cartlist').html(carthtml);
 					  
 					  jQuery('.loader').hide();

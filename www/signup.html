@@ -65,7 +65,8 @@ function register()
 	return false;
   }else{
       
-	       jQuery("#msgstatus").addClass("alert-danger").fadeIn(10).text("Please Wait....");
+	       jQuery('.loader').show();
+		   jQuery('.mask').show();
            jQuery.ajax({					  
 						type:'POST',  
 						url:"https://purecbdgroup.com/api.php/register",
@@ -74,7 +75,8 @@ function register()
 						                      user_pass: password,
 											  nickname:nickname,
 											  mobile:mobile											  
-											  }),										
+											  }),	
+						contentType: 'application/json',					  
 						success:function(data)
 							 {
                                  							 
@@ -89,9 +91,16 @@ function register()
 									  }else
 										 {
 											 jQuery("#msgstatus").addClass("alert-danger").fadeIn(10).text(data.message);
-										 }	  
+										 }
 
-							}
+                                jQuery('.loader').hide();
+		                        jQuery('.mask').hide();										 
+
+							},
+							error: function(e) {
+							alert('Error: ' + e.message);
+						}
+							
 			           });
     }
   
@@ -107,31 +116,31 @@ function register()
 		  </div>
         <div class="form-box">
             <form>
-			  <div class="form-group lableup">
-                    <input type="text" name="nickname" id="nickname" class="form-control" value="">
+			  <div class="form-group">
+                    <input type="text" name="nickname" id="nickname" class="form-control inputLableUp" value="">
                     <label class="form-control-placeholder" for="buisness">Name</label>
 					<span class="nickname-error error" style="color:red;display:none;">Please enter name.</span>
                 </div>
-                <div class="form-group lableup">
-                    <input type="text" name="username" id="username" class="form-control" value="">
+                <div class="form-group">
+                    <input type="text" name="username" id="username" class="form-control inputLableUp" value="">
                     <label class="form-control-placeholder" for="buisness">username</label>
 					<span class="username-error error" style="color:red;display:none;">Please enter username.</span>
                 </div>
 
-                <div class="form-group lableup">
-                    <input type="email" name="email" id="email" class="form-control" value="">
+                <div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control inputLableUp" value="">
                     <label class="form-control-placeholder" for="buisness">email</label>
 					<span class="email-error error" style="color:red;display:none;">Please enter email.</span>
                 </div>
 
-                <div class="form-group lableup">
-                    <input type="number" name="mobile" id="mobile" class="form-control" value="">
+                <div class="form-group">
+                    <input type="number" name="mobile" id="mobile" class="form-control inputLableUp" value="">
                     <label class="form-control-placeholder" for="buisness">mobile</label>
 					<span class="mobile-error error" style="color:red;display:none;">Please enter mobile.</span>
                 </div>
 
-                <div class="form-group lableup">
-                    <input type="password" name="password" id="password" class="form-control" value="">
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control inputLableUp" value="">
                     <label class="form-control-placeholder" for="buisness">password</label>
 					<span class="password-error error" style="color:red;display:none;">Please enter password.</span>
                 </div>
@@ -157,7 +166,14 @@ function register()
                     <p style="color:#696969;">Alredy Member? <a onclick="nextpage('login.html')"  class="text-white"> Login Here</a></p>
             </div>
         </div>
-    
+    <div class="loader" style="position: absolute;top: 20%;left: 21%;z-index:999;display:none; ">
+     <img  src="images/loading.gif" style="height: 115px;margin-top: 50%;
+    margin-left: 37%;" alt="">
+      </div>
+	  <div class="mask" style="display:none;"></div>
+	  <style>
+	  .mask{ position:fixed; background:#000; left:0px; top:0px; right:0px; bottom:0px; opacity:0.6; z-index:99; }
+	  </style>
      <script type="text/javascript" src="cordova.js"></script>        
      <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -174,11 +190,7 @@ function register()
 
         $(document).ready(function () {
             $(".inputLableUp").focus(function () {
-                if ($(this).val() == '') {
-                    $(this).parent().removeClass('lableup');
-                } else {
-                    $(this).parent().addClass('lableup');
-                }
+                $(this).parent().addClass('lableup');
             }).blur(function () {
                 if ($(this).val() == '') {
                     $(this).parent().removeClass('lableup');
