@@ -26,11 +26,10 @@
 <script>   
 	function setvalue()
 		{  
-		   
-		   var current_product_id= window.localStorage.getItem("current_product_id");
-		   alert(current_product_id);
-            if(current_product_id)
-              {			
+		  
+            if(window.localStorage.hasOwnProperty("current_product_id"))
+              {	
+                 var current_product_id= window.localStorage.getItem("current_product_id");			  
 		      $.ajax({	    	
 			           type:'POST',						
 						url:"https://purecbdgroup.com/api.php/product_details",
@@ -60,8 +59,8 @@
   }
  function addtocart()
 	{
-	    var current_product_id= window.localStorage.getItem("current_product_id");
-	    addProductTocart(current_product_id,1);
+	    var current_product_id= window.localStorage.getItem("current_product_id");		
+	    addProductTocart(current_product_id,1,1);
 	} 
 
 </script>
