@@ -35,8 +35,9 @@ function setvalue()
 		  {
                if(window.localStorage.getItem("successmsg"))
 				  {
-					jQuery("#msgstatus").addClass("alert-success").fadeIn(10).text(window.localStorage.getItem("successmsg"));
-					window.localStorage.removeItem('successmsg');
+					 jQuery("#msgstatus").addClass("alert-success").text(window.localStorage.getItem("successmsg"));
+					 window.localStorage.removeItem('successmsg');
+					 setTimeout(function(){jQuery("#msgstatus").addClass("alert-success").text('');},3000);
 				  }		  
 			  jQuery('.loader').show();
 			  jQuery('.mask').show();	  
@@ -56,7 +57,7 @@ function setvalue()
 						  
 							 carthtml+='<div class="cart-iner-box">\
 								<div class="cart-product" onclick="productdetal('+data.cart_list[index].product_id+')">\
-									<img src="images/strawberry.jpg" alt="">\
+									<img src="'+data.cart_list[index].img+'" alt="">\
 								</div>\
 								<div class="cart-product-dtl">\
 									<h6>'+data.cart_list[index].currency+data.cart_list[index].regular_price+' <span></span></h6>\

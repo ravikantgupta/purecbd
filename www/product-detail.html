@@ -26,10 +26,10 @@
 <script>   
 	function setvalue()
 		{  
-		  
-            if(window.localStorage.hasOwnProperty("current_product_id"))
+		   var current_product_id= window.localStorage.getItem("current_product_id");	
+            if(typeof current_product_id !== 'undefined')
               {	
-                 var current_product_id= window.localStorage.getItem("current_product_id");			  
+                		  
 		      $.ajax({	    	
 			           type:'POST',						
 						url:"https://purecbdgroup.com/api.php/product_details",

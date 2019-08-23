@@ -41,17 +41,17 @@ function userlogin()
    var password=jQuery("#password").val();
 	if(username=='')
 	{
-	 jQuery("#msgstatus").addClass("alert-danger").fadeIn(10).text("Please enter user name");
+	 jQuery("#msgstatus").addClass("alert-danger").text("Please enter user name");
 	}
     else
 	{
      if(password=='')
 		{
-		 jQuery("#msgstatus").addClass("alert-danger").fadeIn(10).text("Please enter password");
+		 jQuery("#msgstatus").addClass("alert-danger").text("Please enter password");
 		}
 		else
 		{
-		   jQuery("#msgstatus").addClass("alert-danger").fadeIn(10).text("Please Wait....");
+		   jQuery("#msgstatus").addClass("alert-danger").text("Please Wait....");
            jQuery.ajax({					  
 						type:'POST',  
 						url:"https://purecbdgroup.com/api.php/login",

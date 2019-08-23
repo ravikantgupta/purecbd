@@ -40,7 +40,10 @@ function bakpagedwn(page) {
 
 function main()
 {	
-	var menuhtm='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>\
+	var loggedIn=	window.localStorage.getItem("loggedIn"); 
+	if(loggedIn)
+	 {
+	  var menuhtm='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>\
 	 <div class="sidbar-header">\
 		<a class="profile-box" href="javascript:void(0)"> <span class="profile"><img src="images/all.jpg" alt=""></span>\
 			<span>'+window.localStorage.getItem("login_user_name")+'</span></div>\
@@ -66,23 +69,15 @@ function main()
 		<li><a href="#"><span class="sidbar-icon"><img src="images/list1.jpg" alt=""></span>Share</a></li>\
 	</ul>';
 	
-		
-				
-			var loggedIn=	window.localStorage.getItem("loggedIn");
-			
-				if(loggedIn)
-				{
-				 menuhtm+='<div class="logout">\
+			 menuhtm+='<div class="logout">\
 				  <a onClick="logout()"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a>\
 				   </div>';	
-				}else
-				{
-				 menuhtm+='<div class="logout">\
-				  <a onClick="nextpage(\'login.html\')"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logoin</a>\
-				  </div>';
-				}
 
 			 jQuery('#sidenavcontainer').html(menuhtm);
+	 }else
+	 {
+		 nextpage('login.html');
+	 }		 
 
 }
 
