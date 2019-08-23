@@ -16,6 +16,7 @@
         href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap&subset=latin-ext,vietnamese"
         rel="stylesheet">      
         <script type="text/javascript" src="js/functions.js"></script>
+		<script type="text/javascript" src="js/cart.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">   
@@ -26,21 +27,19 @@
 	function setvalue()
 		{  
 		   
-		   var current_product_id= window.localStorage.getItem("current_product_id");
-		   
+		   var current_product_id= window.localStorage.getItem("current_product_id");		   
 		     $.ajax({	    	
 			           type:'POST',						
 						url:"https://purecbdgroup.com/api.php/product_details",
 						data:JSON.stringify({'product_id':current_product_id}),						
 						contentType: 'application/json',
 						success:function(data)
-						{	
-						  
+						{						  
                           if(data.status) 
 						  {
 						     jQuery('#product_image').attr('src',data.product_data.product_image);
-						    jQuery('#product_name').html(data.product_data.product_name);
-							jQuery('#product_price').html('price: '+data.currency+data.product_data.product_price);
+						     jQuery('#product_name').html(data.product_data.product_name);
+							 jQuery('#product_price').html('price: '+data.currency+data.product_data.product_price);
 						    
 						  }
 						  jQuery('.loader').hide();
@@ -50,8 +49,15 @@
 							alert('Error: ' + e.message);
 						}
 				});
-		   
-		}   
+				 
+	  
+	  getCartDetail();
+  }
+ function addtocart()
+	{
+	    var current_product_id= window.localStorage.getItem("current_product_id");
+	    addProductTocart(current_product_id,1);
+	} 
 
 </script>
     <div class="header">
@@ -80,6 +86,7 @@
 
     <section class="list-detail-rate">
         <div class="container">
+		  <span id="msgstatus"></span>
             <div class="listing-detail-box">
                 <h6 id="product_name"></h6>
             </div>
@@ -89,7 +96,7 @@
                 </div>
                 <div class="price-iner-box">
                     <span class="add-list">
-                        <button type="submit">add <span>+</span></button>
+                        <button type="button" onclick="addtocart()">add <span>+</span></button>
                     </span>
                 </div>
             </div>
@@ -156,7 +163,7 @@
                     <p>added Total</p>
                 </div>
                 <div class="add-total">
-                    <P>$300 <span class="left-img" onclick="nextpage('my-cart.html')"><img src="images/left.jpg" alt=""></span></P>
+                    <P><span class="pricehtml">$0</span> <span class="left-img" onclick="nextpage('my-cart.html')"><img src="images/left.jpg" alt=""></span></P>
                 </div>
             </div>
         </div>

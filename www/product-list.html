@@ -31,6 +31,7 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       catmain();
+	  getCartDetail();
     });
 	
 	function setvalue()
@@ -93,10 +94,7 @@
                 <span class="navbar-toggler-icon">
                     <a href="javascript:void(0)" class="closebtn" onclick="openNav()"> <i class="fa fa-bars" aria-hidden="true"></i></a>
                 </span>
-                <div class="header-icon">
-                    <span class="heart-icon">
-                        <a href="#"> <i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                    </span>
+                <div class="header-icon">                   
                     <span class="cart-icon"> <a onclick="nextpage('my-cart.html')"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span
                                 class="zero"> 0</span> </a></span>
                 </div>

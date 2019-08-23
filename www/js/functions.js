@@ -30,60 +30,12 @@ function nextpage(page) {
 
 function bakpagedwn(page) {
 
-
 		 window.plugins.nativepagetransitions.slide({
 			 "direction" : "down",
 			 "href" : page
 		 });
 	   }
 
-function buslist(element) {
-
-	var city_from=$('#city_from').val();
-	var city_to=$('#city_to').val();
-
-	var jrn_date=$('#jrn_date').val();
-
-	if(city_from=='')
-	{
-	alert('Please select from city');	
-
-	return false;
-	}
-
-	if(city_to=='')
-	{
-	alert('Please select to city');	
-
-	return false;
-   }	
-
-
-	window.localStorage.setItem("city_from", city_from);
-	window.localStorage.setItem("city_to", city_to);
-	window.localStorage.setItem("jrn_date", jrn_date);
-
-	var city_from_text= jQuery("#autocomplete").val();
-
-	var city_to_text= jQuery("#autocomplete1").val();
-
-	window.localStorage.setItem("city_from_text", city_from_text);
-	window.localStorage.setItem("city_to_text", city_to_text);
-
-
-
-
-			   
-	  window.plugins.nativepagetransitions.slide({
-		  "direction" : "left",
-		   "duration":1000,
-			"androiddelay"     :  400,
-		  "href" : "bus-list.html"
-	  });
-	  
-	  
-  
-}
 
 
 function productdetal()
@@ -211,4 +163,38 @@ function logout() {
   window.localStorage.removeItem("login_user_name");  
   nextpage('login.html');
 
+}
+
+function getCartDetail()
+{
+	var login_user_id= window.localStorage.getItem("login_user_id");
+    
+	  if(login_user_id)
+	  {
+		  
+		  $.ajax({	    	
+				   type:'POST',						
+					url:"https://purecbdgroup.com/api.php/cart_total_detail",
+					data:JSON.stringify({'user_id':login_user_id}),						
+					contentType: 'application/json',
+					success:function(data)
+					{		  
+					 				  
+					  var carthtml='';						
+						if(data.status)
+						{
+						  jQuery('.zero').html(data.total_cart_item);
+						  
+						if (jQuery('.pricehtml').length) {
+                            jQuery('.pricehtml').html(data.currency+data.total_price);
+						  }						  
+						}				
+					  
+					},
+					error: function(e) {
+						alert('Error: ' + e.message);
+					}
+			});	
+		  
+	  }
 }
