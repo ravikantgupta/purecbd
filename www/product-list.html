@@ -38,7 +38,7 @@
 		{  
 		   
 		   var current_cat_slug= window.localStorage.getItem("current_cat_slug");
-		    current_cat_slug='cbd-pets';
+		   
 			   jQuery('.catlist').remove();
 			   jQuery('#lodinggif').show();
 		     $.ajax({	    	
@@ -63,12 +63,14 @@
 														<img style="height:249px;" src="'+data.product[index].img+'" alt="">\
 													</div>\
 													<div class="category-text best-selling">\
+													<div class="category-text-box" style="min-height:30px;">\
 														<p>'+data.product[index].product_name+'</p>\
+													</div>\
 														<span class="category-cbd-icon">'+data.product[index].currency+data.product[index].regular_price+'</span>\
 													</div>\
 												</a>\
 											</div>';									
-									i++; 
+									
 											
 							  });
 							}else
