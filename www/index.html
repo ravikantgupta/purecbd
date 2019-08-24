@@ -49,6 +49,56 @@ function setvalue()
 						//alert('UError: ' + e.message);
 					}
 				  });
+				  
+				  
+				$.ajax({	    	
+					type:'GET',					
+					url:"https://purecbdgroup.com/api.php/bestselling",					
+					success:function(data){				
+					  var bestselling='';
+							  $.each(data.product, function(index) {               
+								  bestselling+='<div class="item">\
+											<div class="shop-category-oil">\
+												<a onclick="productdetal('+data.product[index].product_id+')">\
+													<div class="category-cbd">\
+														<img src="'+data.product[index].img+'" alt="'+data.product[index].product_name+'">\
+													</div>\
+													 <div class="category-text best-selling">\
+													<div class="category-text-box" style="min-height: 30px;">\
+														<p>'+data.product[index].product_name+'</p>\
+														</div>\
+													<span class="category-cbd-icon">'+data.product[index].currency+data.product[index].regular_price+'</span>\
+												</div></a></div></div>';
+													
+								});
+		
+		              $('#bestselling').html(bestselling);
+					  $('#bestselling').owlCarousel({
+								loop: true,
+								margin: 10,
+								nav: false,
+								dots: false,							
+								autoplayTimeout: 5000,
+								autoplayHoverPause: true,
+								responsive: {
+									0: {
+										items: 2
+									},
+									600: {
+										items: 2
+									},
+									990: {
+										items: 2
+									},
+
+								}
+							});
+										  
+					},
+					error: function(e) {
+						alert('UError: ' + e.message);
+					}
+				  });  
 		  /***********End Load category**************/
 		  
 		}
@@ -105,7 +155,7 @@ function setvalue()
                     <div class="cbd-oil">
                         <h4>purekana cbd oil</h4>
 
-                        <a class="buy-pdct" onclick="productdetal()"> buy now</a>
+                        <a class="buy-pdct" onclick="categoryproducts('cbd-pets')"> buy now</a>
                     </div>
                 </div>
                 <div class="item">
@@ -115,7 +165,7 @@ function setvalue()
                     <div class="cbd-oil">
                         <h4>purekana cbd oil</h4>
 
-                        <a class="buy-pdct" onclick="productdetal()"> buy now</a>
+                        <a class="buy-pdct" onclick="categoryproducts('cbd-pets')"> buy now</a>
                     </div>
                 </div>
                 <div class="item">
@@ -125,7 +175,7 @@ function setvalue()
                     <div class="cbd-oil">
                         <h4>purekana cbd oil</h4>
 
-                        <a class="buy-pdct" onclick="productdetal()"> buy now</a>
+                        <a class="buy-pdct" onclick="categoryproducts('cbd-pets')"> buy now</a>
                     </div>
                 </div>
                 <div class="item">
@@ -135,7 +185,7 @@ function setvalue()
                     <div class="cbd-oil">
                         <h4>purekana cbd oil</h4>
 
-                        <a class="buy-pdct" onclick="productdetal()"> buy now</a>
+                        <a class="buy-pdct" onclick="categoryproducts('cbd-pets')"> buy now</a>
                     </div>
                 </div>
             </div>
@@ -149,7 +199,7 @@ function setvalue()
             </div>
             <div class="shop-category-cbd" id="shopbycategoryid">
 			
-                
+                <center><img  src="images/loading.gif" style="height: 50px" alt=""></center>
 			</div>
 
         </div>
@@ -160,46 +210,8 @@ function setvalue()
             <div class="category-had">
                 <h4>best selling products</h4>
             </div>
-            <div class="shop-category-cbd category-shop">
-                <div class="item">
-                    <div class="shop-category-oil">
-                        <a onclick="productdetal()">
-                            <div class="category-cbd">
-                                <img src="images/1000-ISO.jpg" alt="">
-                            </div>
-                            <div class="category-text best-selling">
-                                <p>strawberry</p>
-                                <span class="category-cbd-icon">&149,00</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="shop-category-oil">
-                        <a onclick="productdetal()">
-                            <div class="category-cbd">
-                                <img src="images/1000-ISO.jpg" alt="">
-                            </div>
-                            <div class="category-text best-selling">
-                                <p>eco props</p>
-                                <span class="category-cbd-icon">&149,00</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="shop-category-oil">
-                        <a onclick="productdetal()">
-                            <div class="category-cbd">
-                                <img src="images/1000-ISO.jpg" alt="">
-                            </div>
-                            <div class="category-text best-selling">
-                                <p>eco props</p>
-                                <span class="category-cbd-icon">&149,00</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+            <div class="shop-category-cbd category-shop" id="bestselling">
+               <center><img  src="images/loading.gif" style="height: 50px" alt=""></center>
             </div>
 
         </div>
@@ -263,27 +275,7 @@ function setvalue()
             }
         });
        
-        $('.category-shop').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            dots: false,
-            // autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 2.3
-                },
-                600: {
-                    items: 2
-                },
-                990: {
-                    items: 2
-                },
-
-            }
-        });
+        
         
         
     </script>

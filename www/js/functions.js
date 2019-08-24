@@ -45,7 +45,7 @@ function main()
 	 {
 	  var menuhtm='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>\
 	 <div class="sidbar-header">\
-		<a class="profile-box" href="javascript:void(0)"> <span class="profile"><img src="images/all.jpg" alt=""></span>\
+		<a class="profile-box" onClick="nextpage(\'index.html\')"> <span class="profile"><img src="images/logo.png" alt=""></span>\
 			<span>'+window.localStorage.getItem("login_user_name")+'</span></div>\
 		<ul class="sidbar-listing">\
 		<li><a onClick="nextpage(\'index.html\')"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
@@ -57,16 +57,10 @@ function main()
 				<li><a onClick="categoryproducts(\'cbd-wellness\')">-&nbsp;CBD Health & Wellness</a></li>\
 			</ol>\
 		</li>\
-		<li><a href="#"><span class="sidbar-icon"><img src="images/list7.jpg" alt=""></span>My Oreders</a></li>\
+		<li><a href="#"><span class="sidbar-icon"><img src="images/list7.jpg" alt=""></span>My Orders</a></li>\
 		<li><a onClick="nextpage(\'my-cart.html\')"><span class="sidbar-icon"><img src="images/list6.jpg" alt=""></span>My Cart <span\
 					class="cart-rt-dtl">5</span></a></li>\
-		<li><a href="#"><span class="sidbar-icon"><img src="images/list5.jpg" alt=""></span>My Wallet</a></li>\
-	</ul>\
-	<p class="other-pr">Others</p>\
-	<ul class="cust-support">\
-		<li><a href="#"><span class="sidbar-icon"><img src="images/list3.jpg" alt=""></span>Customer Support</a>\
-		</li>\
-		<li><a href="#"><span class="sidbar-icon"><img src="images/list1.jpg" alt=""></span>Share</a></li>\
+		<li><a href="#"><span class="sidbar-icon"><img src="images/list5.jpg" alt=""></span>My Account</a></li>\
 	</ul>';
 	
 			 menuhtm+='<div class="logout">\
@@ -85,7 +79,7 @@ function catmain()
 {	
 	var menuhtm='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>\
 	 <div class="sidbar-header">\
-		<a class="profile-box" href="javascript:void(0)"> <span class="profile"><img src="images/all.jpg" alt=""></span>\
+		<a class="profile-box" onClick="nextpage(\'index.html\')"> <span class="profile"><img src="images/logo.png" alt=""></span>\
 			<span>'+window.localStorage.getItem("login_user_name")+'</span></div>\
 		<ul class="sidbar-listing">\
 		<li><a onClick="nextpage(\'index.html\')"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\

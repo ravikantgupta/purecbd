@@ -24,7 +24,7 @@ function setcategorydropdown(data)
 		
 		jQuery('#productcategory').html(drrodownhtml);
 		jQuery('#shopbycategoryid').html(shopbycategory);
-		 $('.shop-category-cbd').owlCarousel({
+		 $('#shopbycategoryid').owlCarousel({
             loop: true,
             margin: 10,
             nav: false,
@@ -33,7 +33,7 @@ function setcategorydropdown(data)
             autoplayHoverPause: true,
             responsive: {
                 0: {
-                    items: 2.3
+                    items: 2
                 },
                 600: {
                     items: 2

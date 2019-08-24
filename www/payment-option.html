@@ -30,18 +30,228 @@
 <script>   
 	function setvalue()
 		{ 
+		  var login_user_id= window.localStorage.getItem("login_user_id");
+		   $.ajax({	    	
+					type:'GET',					
+					url:"https://purecbdgroup.com/api.php/country",					
+					success:function(data){
+					
+					   var countryhtml='<option data="" value="">Select</option>';
+							  $.each(data.country, function(index) { 
+							  countryhtml+='<option data="'+data.country[index].id+'" value="'+data.country[index].sortname+'">'+data.country[index].name+'</option>';
+        
+							  });
+							  
+							jQuery('#country').html(countryhtml);  
+					
+					},
+					error: function(e) {
+						//alert('UError: ' + e.message);
+					}
+				  });
+				  
+			$.ajax({	    	
+				   type:'POST',						
+					url:"https://purecbdgroup.com/api.php/cart_list",
+					data:JSON.stringify({'user_id':login_user_id}),						
+					contentType: 'application/json',
+					success:function(data)
+					{					  
+					 
+					  var carthtml='';						
+						if(data.total_cart_item)
+						{
+						  var i=0;
+						  var productids='';
+						  var productqty='';
+						  
+						  $.each(data.cart_list, function(index) {							
+                              
+                            if(productids=='')
+							{
+							   productids=data.cart_list[index].product_id;
+							   productqty=data.cart_list[index].quantity;
+							}else
+							{
+                               productids+=','+data.cart_list[index].product_id;
+							   productqty+=','+data.cart_list[index].quantity;
+							}
+																		
+						  });
+						  
+						 
+						  jQuery('#quantity').val(productids);
+						  jQuery('#product_id').val(productqty);
+						  
+						}
+						
+					},
+					error: function(e) {
+						alert('Error: ' + e.message);
+					}
+			});		  
+				  
+		
 		   getCartDetail();
 		}
-		function paynow()
+function paynow()
 		{
-		   jQuery('#buyNowBtn').click();
-		}
+		  var first_name=jQuery('#first_name').val();
+		  var last_name=jQuery('#last_name').val();
+		  var company=jQuery('#company').val();
+		  var country=jQuery('#country').val();
+		  var address=jQuery('#address').val();
+		  var city=jQuery('#city').val();
+		  var state=jQuery('#state').val();
+		  var postcode=jQuery('#postcode').val();
+		  var phone=jQuery('#phone').val();
+		  var email=jQuery('#email').val();
+		
+		 var flag=0;
+		  if(first_name=="")
+		  {
+			jQuery('.first_name-error').show();
+			flag=1;
+		  }
+		  if(last_name=="")
+		  {
+			jQuery('.last_name-error').show();
+			flag=1;
+		  }
+		  if(company=="")
+		  {
+			jQuery('.company-error').show();
+			flag=1;
+		  }
+		  if(country=="")
+		  {
+			jQuery('.country-error').show();
+			flag=1;
+		  }if(address=="")
+		  {
+			jQuery('.address-error').show();
+			flag=1;
+		  }if(city=="")
+		  {
+			jQuery('.city-error').show();
+			flag=1;
+		  }if(state=="")
+		  {
+			jQuery('.state-error').show();
+			flag=1;
+		  }if(postcode=="")
+		  {
+			jQuery('.postcode-error').show();
+			flag=1;
+		  }if(phone=="")
+		  {
+			jQuery('.phone-error').show();
+			flag=1;
+		  }
+		  if(email=="")
+		  {
+			jQuery('.email-error').show();
+			flag=1;
+		  }
+		  
+		  if(flag==1)
+		  {
+			setTimeout(function(){jQuery('.error').hide();},3000);
+			return false;
+		  }else{
+			     placeorder();
+				  // jQuery('#buyNowBtn').click();
+			}  
+  }
+  
+function placeorder()
+{
+   var login_user_id= window.localStorage.getItem("login_user_id");
+   
+    var first_name=jQuery('#first_name').val();
+		  var last_name=jQuery('#last_name').val();
+		  var company=jQuery('#company').val();
+		  var country=jQuery('#country').val();
+		  var address=jQuery('#address').val();
+		  var city=jQuery('#city').val();
+		  var state=jQuery('#state').val();
+		  var postcode=jQuery('#postcode').val();
+		  var phone=jQuery('#phone').val();
+		  var email=jQuery('#email').val();
+		   var product_id=jQuery('#product_id').val();
+		  var quantity=jQuery('#quantity').val();
+		  
+        $.ajax({	    	
+				   type:'POST',						
+					url:"https://purecbdgroup.com/api.php/order",
+					data:JSON.stringify({'user_id':login_user_id,
+					                     'product_id':product_id,
+										 'quantity':quantity,
+										 'first_name':first_name,
+										 'last_name':last_name,
+										 'company':company,
+                                         'email':email, 
+ 										 'phone':phone,
+										 'city':city,
+										 'state':state,
+										 'postcode':postcode, 
+										 'country':country
+					                    }),						
+					contentType: 'application/json',
+					success:function(data)
+					{				 
+					  console.log(data);
+					  
+					  if(data.status)
+						{
+						
+						  nextpage('thanku.html')
+						
+						}
+						
+					},
+					error: function(e) {
+						alert('Error: ' + e.message);
+					}
+			});	
+   
+}  
+  
+function getState()
+{
+  var countryid = jQuery("#country option:selected").attr("data");
+   var statehtml='<option value="">Select</option>';
+  if(countryid!='')
+  {
+      $.ajax({	    	
+			   type:'POST',						
+				url:"https://purecbdgroup.com/api.php/state",
+				data:JSON.stringify({'country_id':countryid}),						
+				contentType: 'application/json',
+				success:function(data)
+				{				
+					  $.each(data.state, function(index) { 					  
+					  statehtml+='<option value="'+data.state[index].name+'">'+data.state[index].name+'</option>';
+
+					  });
+					  
+					 jQuery('#state').html(statehtml);  
+					
+			  },
+				error: function(e) {
+					alert('Error-p: ' + e.message);
+				}
+				});	  		
+  }
+  jQuery('#state').html(statehtml);  
+ 
+} 
 </script>		
     <div class="header">
         <div class="container">
             <div class="header-nave  detail-nave">
                 <span class="navbar-toggler-icon nav-logo">
-                    <a onclick="bakpage('index.html')"><img src="images/left-arrow.png" alt=""><span class="my-cart">My Cart</span></a>
+                    <a onclick="bakpage('index.html')"><img src="images/left-arrow.png" alt=""><span class="my-cart">Checkout</span></a>
                 </span>
                 <div class="header-icon">
                  
@@ -55,11 +265,11 @@
     <section class="payment-option">
         <div class="container">
             <div class="payment-option-box">
-                <p class="total-para">Total Amaunt<span class="doler-option">$149.00</span></p>
-                <p class="total-coler">Delivery Charges<span class="doler-option">$149.00</span></p>
+                <p class="total-para">Total Amaunt<span class="doler-option pricehtml">$0.00</span></p>
+                <p class="total-coler">Delivery Charges<span class="doler-option pricehtml">$0.00</span></p>
             </div>
             <div class="payment-option-box pay-amount">
-                <p class="total-para">Amaunt Payble<span class="doler-option">$149.00</span></p>
+                <p class="total-para">Amaunt Payble<span class="doler-option pricehtml">$0.00</span></p>
                 <p class="total-coler">Including all Tex<span class="doler-option"></span></p>
             </div>
         </div>
@@ -70,66 +280,64 @@
             <div class="shipping-main">
                 <h3 class="CP-dtl">Billing And Shipping Details</h3>
                 <form>
+				   <input type="hidden" name="product_id" id="product_id" value="">
+				   <input type="hidden" name="quantity" id="quantity" value="">
                     <div class="shipping-main-box">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">First Name <span class="importent-star">*</span></label>
-                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-
+                            <label for="first_name">First Name <span class="importent-star">*</span></label>
+                            <input type="text" class="form-control" name="first_name" id="first_name">
+                            <span class="first_name-error error" style="color:red;display:none;">Please Enter First Name.</span>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Last Name <span class="importent-star">*</span></label>
-                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-
+                            <label for="last_name">Last Name <span class="importent-star">*</span></label>
+                            <input type="text" class="form-control" name="last_name" id="last_name" >
+                            <span class="last_name-error error" style="color:red;display:none;">Please Enter Last Name.</span>
                         </div>
                     </div>
+					 <div class="form-group">
+                            <label for="company">Company Name <span class="importent-star">*</span></label>
+                            <input type="text" class="form-control" name="company" id="company" >
+                             <span class="company-error error" style="color:red;display:none;">Please Enter Company Name.</span> 
+                        </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Country <span class="importent-star">*</span></label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>india</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <label for="country">Country <span class="importent-star">*</span></label>
+                        <select class="form-control" name="country" id="country" onchange="getState()">
+                          
                         </select>
+						<span class="country-error error" style="color:red;display:none;">Please Enter Country.</span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Street address <span class="importent-star">*</span></label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="House number and street name">
+                        <label for="address">Street address <span class="importent-star">*</span></label>
+                        <input type="text" class="form-control" name="address" id="address">
+						<span class="address-error error" style="color:red;display:none;">Please Enter Address.</span>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="city">Town/City <span class="importent-star">*</span></label>
+                        <input type="text" class="form-control" name="city" id="city" >
+						<span class="city-error error" style="color:red;display:none;">Please enter City.</span>
                     </div>
                     <div class="form-group">
-
-                        <input type="text" class="form-control apartment-number" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Apartment, suite, unit etc. (optional)">
-
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Town/City <span class="importent-star">*</span></label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                            <label for="exampleFormControlSelect1">State / Country <span class="importent-star">*</span></label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>india</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <label for="state">State<span class="importent-star">*</span></label>
+                            <select class="form-control" id="state" name="state">
+                               
                             </select>
+							<span class="state-error error" style="color:red;display:none;">Please Enter State.</span>
                         </div>
                         <div class="form-group">
-                                <label for="exampleInputEmail1">Postcode / ZIP <span class="importent-star">*</span></label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="postcode">Postcode / ZIP <span class="importent-star">*</span></label>
+                                <input type="text" class="form-control" id="postcode" name="postcode">
+								<span class="postcode-error error" style="color:red;display:none;">Please Enter Postcode.</span>
                             </div>
                             <div class="form-group">
-                                    <label for="exampleInputEmail1">Phone <span class="importent-star">*</span></label>
-                                    <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <label for="phone">Phone <span class="importent-star">*</span></label>
+                                    <input type="tel" class="form-control" name="phone" id="phone">
+									<span class="phone-error error" style="color:red;display:none;">Please Enter Phone.</span>
                                 </div>
                                 <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address <span class="importent-star">*</span></label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <label for="email">Email address <span class="importent-star">*</span></label>
+                                        <input type="email" class="form-control" name="email" id="email" >
+										<span class="email-error error" style="color:red;display:none;">Please Enter Email.</span>
                                     </div>
                 </form>
             </div>
@@ -217,9 +425,7 @@
 
                 </div>
             </div>
-            <div class="pay-add">
-                <button class="pay-btn">Add</button>
-            </div>
+            
         </div>
     </section>
 
@@ -245,7 +451,7 @@
 	<script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
      
     <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/popper.min.js"></script>
+
     <script src="js/bootstrap.min.js"></script>
     
 
