@@ -50,7 +50,7 @@ var app = {
         console.log('Received Event: ' + id);
 
         // start to initialize PayPalMobile library */
-		alert('recvd event');
+		
         app.initPaymentUI();
     },
     initPaymentUI : function () {
