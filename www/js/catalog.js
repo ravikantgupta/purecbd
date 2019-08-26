@@ -77,7 +77,14 @@ function searchProduct()
 {
 	var search_cat_slug=jQuery("#productcategory").val();	
     var search_product_name=jQuery("#productname").val();   
-      if(search_product_name=='')
+      if(search_cat_slug=='')
+	  {
+		jQuery('#productcategory').css('border', '1px solid red');
+		setTimeout(function(){ jQuery('#productcategory').css('border', ''); },2000);
+		return false;
+	  }	
+	  
+	  if(search_product_name=='')
 	  {
 		jQuery('#productname').css('border', '1px solid red');
 		setTimeout(function(){ jQuery('#productname').css('border', ''); },2000);
