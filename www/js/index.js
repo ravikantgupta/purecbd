@@ -74,14 +74,17 @@ var app = {
     createPayment : function () {
       // for simplicity use predefined amount
       // optional payment details for more information check [helper js file](https://github.com/paypal/PayPal-Cordova-Plugin/blob/master/www/paypal-mobile-js-helper.js)
-      var paymentDetails = new PayPalPaymentDetails("50.00", "0.00", "0.00");
-      var payment = new PayPalPayment("50.00", "USD", "Awesome Sauce", "Sale", paymentDetails);
-	  alert('payment');
+     
+	 var totalprice=document.getElementById("totalprice").value;
+          alert(totalprice);
+	 var paymentDetails = new PayPalPaymentDetails(totalprice, "0.00", "0.00");
+      var payment = new PayPalPayment(totalprice, "USD", "Awesome Sauce", "Sale", paymentDetails);
+	
       return payment;
     },
     configuration : function () {
       // for more options see `paypal-mobile-js-helper.js`
-      var config = new PayPalConfiguration({merchantName: "My test shop", merchantPrivacyPolicyURL: "https://mytestshop.com/policy", merchantUserAgreementURL: "https://mytestshop.com/agreement"});
+      var config = new PayPalConfiguration({merchantName: "Pure CBD Group", merchantPrivacyPolicyURL: "https://purecbdgroup.com/returns", merchantUserAgreementURL: "https://purecbdgroup.com/returns"});
       return config;
     },
     onPrepareRender : function() {
@@ -92,7 +95,7 @@ var app = {
       var cardScanBtn = document.getElementById("cardScanBtn");
 
       buyNowBtn.onclick = function(e) {
-        alert('ram');
+        
         PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment, app.onUserCanceled);
       };
 
@@ -126,7 +129,9 @@ var app = {
       PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", app.configuration(), app.onPrepareRender);
     },
     onUserCanceled : function(result) {
-      console.log(result);
+		alert('ram');
+		cancelpayment();
+      alert(result);
     }
 };
 

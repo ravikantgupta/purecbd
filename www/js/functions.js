@@ -160,7 +160,7 @@ function getCartDetail()
 						  jQuery('.zero').html(data.total_cart_item);
 						  
 						if (jQuery('.pricehtml').length) {
-                            jQuery('.pricehtml').html(data.currency+data.total_price);
+                            jQuery('.pricehtml').html(data.currency+parseFloat(data.total_price).toFixed(2));
 						  }	
 						  
 						  if (jQuery('.totitem').length) {

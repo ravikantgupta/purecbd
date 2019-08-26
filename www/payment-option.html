@@ -57,7 +57,7 @@
 					contentType: 'application/json',
 					success:function(data)
 					{					  
-					 
+					 console.log(data);
 					  var carthtml='';						
 						if(data.total_cart_item)
 						{
@@ -82,6 +82,7 @@
 						 
 						  jQuery('#quantity').val(productqty);
 						  jQuery('#product_id').val(productids);
+						  jQuery('#totalprice').val(parseFloat(data.total_price).toFixed(2));
 						  
 						}
 						
@@ -246,6 +247,11 @@ function getState()
   jQuery('#state').html(statehtml);  
  
 } 
+
+function cancelpayment()
+{
+  alert('paymentcancel');
+}
 </script>		
     <div class="header">
         <div class="container">
@@ -281,7 +287,8 @@ function getState()
                 <h3 class="CP-dtl">Billing And Shipping Details</h3>
                 <form>
 				   <input type="hidden" name="product_id" id="product_id" value="">
-				   <input type="hidden" name="quantity" id="quantity" value="">
+				   <input type="hidden" name="quantity" id="quantity" value=""> 
+				   <input type="hidden" name="totalprice" id="totalprice" value="">
                     <div class="shipping-main-box">
                         <div class="form-group">
                             <label for="first_name">First Name <span class="importent-star">*</span></label>
