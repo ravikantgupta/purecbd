@@ -62,7 +62,8 @@ var app = {
 
     },
     onSuccesfulPayment : function(payment) {
-      console.log("payment success: " + JSON.stringify(payment, null, 4));
+      alert("payment success: " + JSON.stringify(payment, null, 4));
+	  placeorder();
     },
     // This code is only used for independent card.io scanning abilities
     onCardIOComplete: function(card) {
@@ -76,7 +77,7 @@ var app = {
       // optional payment details for more information check [helper js file](https://github.com/paypal/PayPal-Cordova-Plugin/blob/master/www/paypal-mobile-js-helper.js)
      
 	 var totalprice=document.getElementById("totalprice").value;
-          alert(totalprice);
+         
 	 var paymentDetails = new PayPalPaymentDetails(totalprice, "0.00", "0.00");
       var payment = new PayPalPayment(totalprice, "USD", "Awesome Sauce", "Sale", paymentDetails);
 	
@@ -128,10 +129,8 @@ var app = {
       // use PayPalEnvironmentNoNetwork mode to get look and feel of the flow
       PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", app.configuration(), app.onPrepareRender);
     },
-    onUserCanceled : function(result) {
-		alert('ram');
-		cancelpayment();
-      alert(result);
+    onUserCanceled : function(result) {		
+      console.log(result);
     }
 };
 

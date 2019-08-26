@@ -182,6 +182,8 @@ function placeorder()
 		   var product_id=jQuery('#product_id').val();
 		  var quantity=jQuery('#quantity').val();
 		  
+		  jQuery('.loader').show();
+			  jQuery('.mask').show();	  
         $.ajax({	    	
 				   type:'POST',						
 					url:"https://purecbdgroup.com/api.php/order",
@@ -201,7 +203,8 @@ function placeorder()
 					contentType: 'application/json',
 					success:function(data)
 					{				 
-					  console.log(data);
+					  jQuery('.loader').hide();
+			          jQuery('.mask').hide();	  
 					  
 					  if(data.status)
 						{
@@ -333,7 +336,7 @@ function cancelpayment()
                         </div>
                         <div class="form-group">
                                 <label for="postcode">Postcode / ZIP <span class="importent-star">*</span></label>
-                                <input type="text" class="form-control" id="postcode" name="postcode">
+                                <input type="number" class="form-control" id="postcode" name="postcode">
 								<span class="postcode-error error" style="color:red;display:none;">Please Enter Postcode.</span>
                             </div>
                             <div class="form-group">
@@ -367,12 +370,8 @@ function cancelpayment()
             </div>
             
         </div>
-		<button id="buyNowBtn">Pay Now</button>
+		<button id="buyNowBtn" hidden>Pay Now</button>
     </section>
-
-
-
-
     <section class="footer payment-option-footer">
         <div class="container">
             <div class="foote-box" onclick="paynow()">
@@ -387,6 +386,15 @@ function cancelpayment()
             </div>
         </div>
     </section>
+	<div class="loader" style="position: absolute;top: 20%;left: 21%;z-index:999; ">
+     <img  src="images/loading.gif" style="height: 115px;margin-top: 50%;
+    margin-left: 37%;" alt="">
+      </div>
+	  <div class="mask"></div>
+	  <style>
+	  .mask{ position:fixed; background:#000; left:0px; top:0px; right:0px; bottom:0px; opacity:0.6; z-index:99; }
+	  </style>
+
    <script type="text/javascript" src="cordova.js"></script>  
    <script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>

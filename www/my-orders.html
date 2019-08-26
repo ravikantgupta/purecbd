@@ -30,7 +30,7 @@
 function setvalue()
 		{ 				
 		  var login_user_id= window.localStorage.getItem("login_user_id");	
-          	
+          login_user_id=42;
 		  if(login_user_id)
 		  {
                 
@@ -100,7 +100,16 @@ function setvalue()
 	  }  
   }
   
- 
+ function orderdetail(order_id)
+ {
+    window.localStorage.setItem("order_id", order_id);
+	 window.plugins.nativepagetransitions.slide({
+              "direction" : "left",
+			   "duration":1000,
+			   "androiddelay":  400,
+              "href" : "order-detail.html"
+          });
+ }
 </script>
     <div class="header">
         <div class="container">

@@ -75,7 +75,7 @@ function setvalue()
 						  });
 						  
 						  jQuery('.footer').show();
-						  jQuery('.pricehtml').html('$'+data.total_price);
+						  jQuery('.pricehtml').html('$'+parseFloat(data.total_price).toFixed(2));
 						  jQuery('.zero').html(data.total_cart_item);
 						  
 						}else
@@ -142,7 +142,7 @@ function setvalue()
                     <p>added Total</p>
                 </div>
                 <div class="add-total">
-                    <P><span class="pricehtml">$0</span> <span class="left-img" onclick="nextpage('payment.html')" ><img src="images/left.jpg" alt=""></span></P>
+                    <P><span class="pricehtml">$0</span> <span class="left-img"><img src="images/left.jpg" alt=""></span></P>
                 </div>
             </div>
         </div>
