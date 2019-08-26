@@ -183,7 +183,7 @@ function placeorder()
 		  var quantity=jQuery('#quantity').val();
 		  
 		  jQuery('.loader').show();
-			  jQuery('.mask').show();	  
+		  jQuery('.mask').show();	  
         $.ajax({	    	
 				   type:'POST',						
 					url:"https://purecbdgroup.com/api.php/order",
@@ -194,7 +194,8 @@ function placeorder()
 										 'last_name':last_name,
 										 'company':company,
                                          'email':email, 
- 										 'phone':phone,
+ 										 'phone':phone, 
+										 'address':address,
 										 'city':city,
 										 'state':state,
 										 'postcode':postcode, 
@@ -215,6 +216,8 @@ function placeorder()
 						
 					},
 					error: function(e) {
+					   jQuery('.loader').hide();
+			           jQuery('.mask').hide();
 						alert('Error: ' + e.message);
 					}
 			});	

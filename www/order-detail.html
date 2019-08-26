@@ -27,7 +27,7 @@ function setvalue()
 		{ 				
 		  var login_user_id= window.localStorage.getItem("login_user_id");
            var order_id= window.localStorage.getItem("order_id"); 		  
-          	
+          
 		  if(order_id)
 		  {
                 
@@ -40,7 +40,7 @@ function setvalue()
 					contentType: 'application/json',
 					success:function(data)
 					{                     
-					   console.log(data);
+					   
 					   var orderhtml='<tr>\
                             <td class="billing-bdr-remove">product</td>\
                             <td class="billing-bdr-remove">Total</td>\

@@ -66,7 +66,7 @@ function main()
 	</ul>';
 	
 			 menuhtm+='<div class="logout">\
-				  <a onClick="logout()"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a>\
+				  <a href="javascript:void(0)" onClick="logout()"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a>\
 				   </div>';	
 
 			 jQuery('#sidenavcontainer').html(menuhtm);
@@ -108,7 +108,7 @@ function catmain()
 				if(loggedIn)
 				{
 				 menuhtm+='<div class="logout">\
-				  <a onClick="logout()"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a>\
+				  <a href="javascript:void(0)" onClick="logout()"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a>\
 				   </div>';	
 				}else
 				{
