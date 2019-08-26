@@ -91,7 +91,7 @@ var app = {
       var cardScanBtn = document.getElementById("cardScanBtn");
 
       buyNowBtn.onclick = function(e) {
-        
+        alert('ram');
         PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment, app.onUserCanceled);
       };
 
