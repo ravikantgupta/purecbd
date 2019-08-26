@@ -1471,3 +1471,40 @@ td.billing-bdr-remove {
     border: 1px solid #dee2e6;
     border-radius: 7px;
 }
+.table th, .table td {
+    text-transform: capitalize;
+}
+
+
+/* ------------my-order---------------- */
+
+.my-order-dtl-heding {
+    background-color: #f6f6f6;
+    padding: 12px 10px;
+}
+.my-order-dtl-heding h3 {
+    margin: 0;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+}
+.my-order-icon {
+    float: right;
+    background-color: #006837;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+/* .my-order-icon .fa {
+    margin-right: 8px;
+} */
+.my-order-icon:hover {
+    color: #fff;
+}
+.my-order-iner-box {
+    margin-top: 10px;
+}

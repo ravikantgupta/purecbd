@@ -57,10 +57,10 @@ function main()
 				<li><a href="javascript:void(0)" onClick="categoryproducts(\'cbd-wellness\')">-&nbsp;CBD Health & Wellness</a></li>\
 			</ol>\
 		</li>\
-		<li><a href="javascript:void(0)" onClick="nextpage(\'my-orders.html\')"><span class="sidbar-icon"><img src="images/list7.jpg" alt=""></span>My Oreders</a></li>\
+		<li><a href="javascript:void(0)" onClick="nextpage(\'my-orders.html\')"><span class="sidbar-icon"><img src="images/list7.jpg" alt=""></span>My Orders</a></li>\
 		<li><a href="javascript:void(0)" onClick="nextpage(\'my-cart.html\')"><span class="sidbar-icon"><img src="images/list6.jpg" alt=""></span>My Cart <span\
 					class="cart-rt-dtl totitem">1</span></a></li>\
-		<li><a href="javascript:void(0)" onClick="nextpage(\'address.html\')"><span class="sidbar-icon"><img src="images/address-icon.png" alt=""></span>Addresses</a></li>\
+		<li><a href="javascript:void(0)" onClick="nextpage(\'my-address-list.html\')"><span class="sidbar-icon"><img src="images/address-icon.png" alt=""></span>Addresses</a></li>\
 		<li><a href="javascript:void(0)" onClick="nextpage(\'edit-account.html\')"><span class="sidbar-icon"><img src="images/account-detail.png" alt=""></span>Account details</a></li>\
 	<li><a href="javascript:void(0)" onClick="nextpage(\'contact-us.html\')"><span class="sidbar-icon"><img src="images/contact-us.png" alt=""></span>Contact us</a></li>\
 	</ul>';
@@ -93,10 +93,10 @@ function catmain()
 				<li><a href="javascript:void(0)" onClick="categoryproductsCat(\'cbd-wellness\')">-&nbsp;CBD Health & Wellness</a></li>\
 			</ol>\
 		</li>\
-		<li><a href="javascript:void(0)" onClick="nextpage(\'my-orders.html\')"><span class="sidbar-icon"><img src="images/list7.jpg" alt=""></span>My Oreders</a></li>\
+		<li><a href="javascript:void(0)" onClick="nextpage(\'my-orders.html\')"><span class="sidbar-icon"><img src="images/list7.jpg" alt=""></span>My Orders</a></li>\
 		<li><a href="javascript:void(0)" onClick="nextpage(\'my-cart.html\')"><span class="sidbar-icon"><img src="images/list6.jpg" alt=""></span>My Cart <span\
 					class="cart-rt-dtl totitem">5</span></a></li>\
-		<li><a href="javascript:void(0)" onClick="nextpage(\'address.html\')"><span class="sidbar-icon"><img src="images/address-icon.png" alt=""></span>Addresses</a></li>\
+		<li><a href="javascript:void(0)" onClick="nextpage(\'my-address-list.html\')"><span class="sidbar-icon"><img src="images/address-icon.png" alt=""></span>Addresses</a></li>\
 		<li><a href="javascript:void(0)" onClick="nextpage(\'edit-account.html\')"><span class="sidbar-icon"><img src="images/account-detail.png" alt=""></span>Account details</a></li>\
 	<li><a href="javascript:void(0)" onClick="nextpage(\'contact-us.html\')"><span class="sidbar-icon"><img src="images/contact-us.png" alt=""></span>Contact us</a></li>\
 	</ul>';
