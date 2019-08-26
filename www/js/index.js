@@ -56,7 +56,7 @@ var app = {
     initPaymentUI : function () {
       var clientIDs = {
         "PayPalEnvironmentProduction": "YOUR_PRODUCTION_CLIENT_ID",
-        "PayPalEnvironmentSandbox": "earth_green_dummy@gmail.com"
+        "PayPalEnvironmentSandbox": "AbJc9LxX35ZXk1z9wGWWHnlP3A5vnO1VcaLDLNEfyZNmBDBdO_FPz8w2vOcMOPqn3I5QBzhNdTcqmhcM"
       };
       PayPalMobile.init(clientIDs, app.onPayPalMobileInit);
 
@@ -75,7 +75,7 @@ var app = {
       // for simplicity use predefined amount
       // optional payment details for more information check [helper js file](https://github.com/paypal/PayPal-Cordova-Plugin/blob/master/www/paypal-mobile-js-helper.js)
       var paymentDetails = new PayPalPaymentDetails("50.00", "0.00", "0.00");
-      var payment = new PayPalPayment("50.00", "USD", "Awesome Sauce", "Sale", paymentDetails);
+      var payment = new PayPalPayment("50.00", "INR", "Awesome Sauce", "Sale", paymentDetails);
       return payment;
     },
     configuration : function () {
