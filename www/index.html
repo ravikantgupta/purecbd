@@ -38,6 +38,57 @@
     });
 function setvalue()
 		{
+		   /********Get Bnner list***************/
+		    $.ajax({	    	
+					type:'GET',					
+					url:"https://purecbdgroup.com/api.php/getBanner",					
+					success:function(data){
+					
+					   var bannerList='';
+							  $.each(data.banner_list, function(index) {               
+								  bannerList+='<div class="item">\
+												<div class="banner-img">\
+													<img src="'+data.banner_list[index].image+'" alt="">\
+												</div>\
+												<div class="cbd-oil">\
+													<h4>purekana cbd oil</h4>\
+													<a class="buy-pdct" onclick="categoryproducts(\''+data.banner_list[index].url+'\')"> buy now</a>\
+												</div>\
+											</div>';
+													
+								});
+		
+		              $('#bannerList').html(bannerList);
+					   $('.app-banner-slider').owlCarousel({
+								loop: true,
+								margin: 10,
+								nav: false,
+								dots: true,
+								 autoplay: true,
+								autoplayTimeout: 5000,
+								autoplayHoverPause: true,
+								responsive: {
+									0: {
+										items: 1
+									},
+									600: {
+										items: 1
+									},
+									990: {
+										items: 1
+									},
+
+								}
+							});
+						   
+					 
+					},
+					error: function(e) {
+						//alert('UError: ' + e.message);
+					}
+				  });
+				  
+		
 		  /***********Load category**************/
 		  $.ajax({	    	
 					type:'GET',					
@@ -147,47 +198,8 @@ function setvalue()
 
     <section class="app-banner">
         <div class="container">
-            <div class="app-banner-slider">
-                <div class="item">
-                    <div class="banner-img">
-                        <img src="images/palication-banner.jpg" alt="">
-                    </div>
-                    <div class="cbd-oil">
-                        <h4>purekana cbd oil</h4>
-
-                        <a class="buy-pdct" onclick="categoryproducts('cbd-pets')"> buy now</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="banner-img">
-                        <img src="images/palication-banner.jpg" alt="">
-                    </div>
-                    <div class="cbd-oil">
-                        <h4>purekana cbd oil</h4>
-
-                        <a class="buy-pdct" onclick="categoryproducts('cbd-pets')"> buy now</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="banner-img">
-                        <img src="images/palication-banner.jpg" alt="">
-                    </div>
-                    <div class="cbd-oil">
-                        <h4>purekana cbd oil</h4>
-
-                        <a class="buy-pdct" onclick="categoryproducts('cbd-pets')"> buy now</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="banner-img">
-                        <img src="images/palication-banner.jpg" alt="">
-                    </div>
-                    <div class="cbd-oil">
-                        <h4>purekana cbd oil</h4>
-
-                        <a class="buy-pdct" onclick="categoryproducts('cbd-pets')"> buy now</a>
-                    </div>
-                </div>
+            <div class="app-banner-slider" id="bannerList">
+             <center style="margin-left:1%;"><img  src="images/loading.gif" style="height: 50px" alt=""></center> 
             </div>
         </div>
     </section>
@@ -251,34 +263,6 @@ function setvalue()
     <script src="js/bootstrap.min.js"></script>
     <script src="js/lightbox-plus-jquery.min.js"></script>
     <script src="js/owl.carousel.js"></script>
-
-    <script>
-        $('.app-banner-slider').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            dots: true,
-            // autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                990: {
-                    items: 1
-                },
-
-            }
-        });
-       
-        
-        
-        
-    </script>
 
 </body>
 
