@@ -53,12 +53,11 @@ function setvalue()
 							 orderhtml+='<div class="order-box">\
 									 <div class="product-order-info">\
 										<div class="product-order-left">\
-										  <div class="img-box">\
-											  <img src="images/order-product.png" style="display:none;" alt="">\
+										   <div style="margin-right: 6px;">\
+											 <span>'+(data.ordered_data[index].status).toUpperCase()+' </span>\
 										  </div>\
 										  <div class="text-info">\
-											  <p>'+data.ordered_data[index].product_name+'</p>\
-											 <span>Order Id : '+data.ordered_data[index].order_id+'</span><br>\
+											 <span>Order Id : #'+data.ordered_data[index].order_id+'</span><br>\
 										  </div>\
 										</div>\
 										<div class="product-order-right">\
