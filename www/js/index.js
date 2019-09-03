@@ -77,7 +77,8 @@ var app = {
       // optional payment details for more information check [helper js file](https://github.com/paypal/PayPal-Cordova-Plugin/blob/master/www/paypal-mobile-js-helper.js)
      
 	 var totalprice=document.getElementById("totalprice").value;
-         
+	 alert(totalprice);
+         totalprice=30;
 	 var paymentDetails = new PayPalPaymentDetails(totalprice, "0.00", "0.00");
       var payment = new PayPalPayment(totalprice, "USD", "Awesome Sauce", "Sale", paymentDetails);
 	
