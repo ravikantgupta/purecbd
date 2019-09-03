@@ -42,6 +42,7 @@
 						     jQuery('#product_image').attr('src',data.product_data.product_image);
 						     jQuery('#product_name').html(data.product_data.product_name);
 							 jQuery('#product_price').html('price: '+data.currency+data.product_data.product_price);
+						     jQuery('#prodescription').html(data.product_data.description);
 						    
 						  }
 						  jQuery('.loader').hide();
@@ -150,11 +151,8 @@
                 <div class="listing-detail-box">
                     <h6>Key Feature </h6>
                 </div>
-                <div class="key-feture-cont">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <div class="key-feture-cont" >
+                    <p id="prodescription"></p>
                 </div>
             </div>
         </div>
