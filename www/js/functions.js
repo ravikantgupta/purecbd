@@ -165,7 +165,16 @@ function getCartDetail()
 						  
 						  if (jQuery('.totitem').length) {
                             jQuery('.totitem').html(data.total_cart_item);
-						  }						  
+						  }
+
+                          if (jQuery('.taxhtml').length) {
+                            jQuery('.taxhtml').html(data.currency+parseFloat(data.total_tax).toFixed(2));
+						  }	
+						  
+						  if (jQuery('.payablepricehtml').length) {
+                            jQuery('.payablepricehtml').html(data.currency+parseFloat(data.payableamount).toFixed(2));
+						  }	
+						  
 						}				
 					  
 					},

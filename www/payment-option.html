@@ -57,7 +57,7 @@
 					contentType: 'application/json',
 					success:function(data)
 					{					  
-					 console.log(data);
+					 
 					  var carthtml='';						
 						if(data.total_cart_item)
 						{
@@ -82,7 +82,7 @@
 						 
 						  jQuery('#quantity').val(productqty);
 						  jQuery('#product_id').val(productids);
-						  jQuery('#totalprice').val(parseFloat(data.total_price).toFixed(2));
+						  jQuery('#totalprice').val(parseFloat(data.payablepricehtml).toFixed(2));
 						  
 						}
 						
@@ -278,10 +278,10 @@ function cancelpayment()
         <div class="container">
             <div class="payment-option-box">
                 <p class="total-para">Total Amaunt<span class="doler-option pricehtml">$0.00</span></p>
-                <p class="total-coler">Delivery Charges<span class="doler-option pricehtml">$0.00</span></p>
+                  <p class="total-coler">Tex<span class="doler-option taxhtml" >$0</span></p>
             </div>
             <div class="payment-option-box pay-amount">
-                <p class="total-para">Amaunt Payble<span class="doler-option pricehtml">$0.00</span></p>
+                <p class="total-para">Amaunt Payble<span class="doler-option payablepricehtml">$0.00</span></p>
                 <p class="total-coler">Including all Tex<span class="doler-option"></span></p>
             </div>
         </div>
@@ -384,7 +384,7 @@ function cancelpayment()
                    
                 </div>
                 <div class="add-total">
-                    <P class="pricehtml">$0 <span class="left-img"><img src="images/left.jpg" alt=""></span></P>
+                    <P class="payablepricehtml">$0 <span class="left-img"><img src="images/left.jpg" alt=""></span></P>
                 </div>
             </div>
         </div>
