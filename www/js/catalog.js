@@ -60,7 +60,7 @@ function leftcategorymenu(data)
 					catmenu+='<ul class="dropdown">';
 					$.each(data.category[index].subcat, function(index1) {
 						
-					catmenu+='<li><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].subcat[index1].slug+'\')">&nbsp;--&nbsp;'+data.category[index].subcat[index1].name+'</a></li>';	
+					catmenu+='<li><a href="javascript:void(0)" onClick="categoryproducts(\''+data.category[index].subcat[index1].slug+'\')">&nbsp;--&nbsp;'+data.category[index].subcat[index1].name+'</a></li>';	
     		
 					});
 					
@@ -71,6 +71,28 @@ function leftcategorymenu(data)
 		
 	 jQuery('#catlist').html(catmenu);	
 }	
+function leftcategorymenuCat(data)
+{
+	var catmenu='';
+	  $.each(data.category, function(index) {
+           					
+			catmenu+='<li><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].slug+'\')">-&nbsp;'+data.category[index].name+'</a>';	
+    			if((data.category[index].subcat).length)
+				{
+					catmenu+='<ul class="dropdown">';
+					$.each(data.category[index].subcat, function(index1) {
+						
+					catmenu+='<li><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].subcat[index1].slug+'\')">&nbsp;--&nbsp;'+data.category[index].subcat[index1].name+'</a></li>';	
+    		
+					});
+					
+					catmenu+='</ul>';
+				}
+		   catmenu+='</li>';
+		});
+		
+	 jQuery('#catlist').html(catmenu);	
+}
 function categoryproducts(catslug)
 {
 	 window.localStorage.setItem("current_cat_slug", catslug);
