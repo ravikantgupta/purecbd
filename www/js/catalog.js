@@ -54,7 +54,7 @@ function leftcategorymenu(data)
 	var catmenu='';
 	  $.each(data.category, function(index) {
            					
-			catmenu+='<li><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].slug+'\')">-&nbsp;'+data.category[index].name+'</a>';	
+			catmenu+='<li class="sidbar-olist-iner"><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].slug+'\')">-&nbsp;'+data.category[index].name+'</a>';	
     			if((data.category[index].subcat).length)
 				{
 					catmenu+='<span class="plush-2"><i class="fa fa-plus"\
@@ -77,7 +77,6 @@ function leftcategorymenu(data)
             jQuery(".sidbar-olist").toggle("slow");
 
         });
-
         jQuery(".plush-2").click(function () {
             jQuery(this).parent().find('.sidbar-olist-iner-box').toggle("slow");
 
@@ -88,10 +87,12 @@ function leftcategorymenuCat(data)
 	var catmenu='';
 	  $.each(data.category, function(index) {
            					
-			catmenu+='<li><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].slug+'\')">-&nbsp;'+data.category[index].name+'</a>';	
+			catmenu+='<li class="sidbar-olist-iner"><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].slug+'\')">-&nbsp;'+data.category[index].name+'</a>';	
     			if((data.category[index].subcat).length)
 				{
-					catmenu+='<ul class="dropdown">';
+					catmenu+='<span class="plush-2"><i class="fa fa-plus"\
+                                    aria-hidden="true"></i></span>';
+					catmenu+='<ul class="sidbar-olist-iner-box">';
 					$.each(data.category[index].subcat, function(index1) {
 						
 					catmenu+='<li><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].subcat[index1].slug+'\')">&nbsp;--&nbsp;'+data.category[index].subcat[index1].name+'</a></li>';	
@@ -104,6 +105,15 @@ function leftcategorymenuCat(data)
 		});
 		
 	 jQuery('#catlist').html(catmenu);	
+	 
+	  jQuery(".plush").click(function () {
+            jQuery(".sidbar-olist").toggle("slow");
+
+        });
+        jQuery(".plush-2").click(function () {
+            jQuery(this).parent().find('.sidbar-olist-iner-box').toggle("slow");
+
+        });	
 }
 function categoryproducts(catslug)
 {

@@ -48,7 +48,7 @@ function main()
 		<a class="profile-box" onClick="nextpage(\'index.html\')"> <span class="profile"><img src="images/logo.jpg" alt=""></span>\
 			<span>'+window.localStorage.getItem("login_user_name")+'</span></div></a>\
 		<ul class="sidbar-listing">\
-		<li><a href="javascript:void(0)"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
+		<li class="sidbar-listing-iner-list"><a href="javascript:void(0)"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
 				Category <span class="plush"><i class="fa fa-plus" aria-hidden="true"></i></span></a>\
 			<ol id="catlist" class="sidbar-olist">\
 				<li><a href="javascript:void(0)" onClick="categoryproducts(\'cbd-bath-body\')">-&nbsp;CBD Bath & Body</a></li>\
@@ -72,10 +72,10 @@ function main()
 
 			 jQuery('#sidenavcontainer').html(menuhtm);
 			 jQuery(document).on('click', function (e) {    
-    if (jQuery(e.target).closest(".fa").length === 0) {
-        closeNav();
-    }
-   });
+				if (jQuery(e.target).closest(".fa").length === 0) {
+					closeNav();
+				}
+			   });
 	 }else
 	 {
 		 nextpage('login.html');
@@ -90,7 +90,7 @@ function catmain()
 		<a class="profile-box" onClick="nextpage(\'index.html\')"> <span class="profile"><img src="images/logo.jpg" alt=""></span>\
 			<span>'+window.localStorage.getItem("login_user_name")+'</span></div></a>\
 		<ul class="sidbar-listing">\
-		<li><a href="javascript:void(0)"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
+		<li class="sidbar-listing-iner-list"><a href="javascript:void(0)"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
 				Category <span class="plush"><i class="fa fa-plus" aria-hidden="true"></i></span></a>\
 			<ol id="catlist" class="sidbar-olist">\
 				<li><a href="javascript:void(0)" onClick="categoryproductsCat(\'cbd-bath-body\')">-&nbsp;CBD Bath & Body</a></li>\
@@ -128,10 +128,10 @@ function catmain()
 			 
 			 
 			 jQuery(document).on('click', function (e) {    
-    if (jQuery(e.target).closest(".fa").length === 0) {
-        closeNav();
-    }
-   });
+				if (jQuery(e.target).closest(".fa").length === 0) {
+					closeNav();
+				}
+			   });
 
 }
 
