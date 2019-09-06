@@ -50,7 +50,7 @@ function main()
 		<ul class="sidbar-listing">\
 		<li><a href="javascript:void(0)"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
 				Category</a>\
-			<ol class="sidbar-olist">\
+			<ol id="catlist" class="sidbar-olist">\
 				<li><a href="javascript:void(0)" onClick="categoryproducts(\'cbd-bath-body\')">-&nbsp;CBD Bath & Body</a></li>\
 				<li><a href="javascript:void(0)" onClick="categoryproducts(\'cbd-beverages\')">-&nbsp;CBD Beverages</a></li>\
 				<li><a href="javascript:void(0)" onClick="categoryproducts(\'cbd-edibles\')">-&nbsp;CBD Edibles</a></li>\
@@ -62,6 +62,7 @@ function main()
 					class="cart-rt-dtl totitem">1</span></a></li>\
 		<li><a href="javascript:void(0)" onClick="nextpage(\'my-address-list.html\')"><span class="sidbar-icon"><img src="images/address-icon.png" alt=""></span>Addresses</a></li>\
 		<li><a href="javascript:void(0)" onClick="nextpage(\'edit-account.html\')"><span class="sidbar-icon"><img src="images/account-detail.png" alt=""></span>Account details</a></li>\
+	<li><a href="javascript:void(0)" onClick="nextpage(\'cbd-dosage-calculator.html\')"><span class="sidbar-icon"><img src="images/calculator.png" alt=""></span>CBD Dosage Calculator</a></li>\
 	<li><a href="javascript:void(0)" onClick="nextpage(\'contact-us.html\')"><span class="sidbar-icon"><img src="images/contact-us.png" alt=""></span>Contact us</a></li>\
 	</ul>';
 	
@@ -86,7 +87,7 @@ function catmain()
 		<ul class="sidbar-listing">\
 		<li><a href="javascript:void(0)"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
 				Category</a>\
-			<ol class="sidbar-olist">\
+			<ol id="catlist" class="sidbar-olist">\
 				<li><a href="javascript:void(0)" onClick="categoryproductsCat(\'cbd-bath-body\')">-&nbsp;CBD Bath & Body</a></li>\
 				<li><a href="javascript:void(0)" onClick="categoryproductsCat(\'cbd-beverages\')">-&nbsp;CBD Beverages</a></li>\
 				<li><a href="javascript:void(0)" onClick="categoryproductsCat(\'cbd-edibles\')">-&nbsp;CBD Edibles</a></li>\
@@ -98,6 +99,7 @@ function catmain()
 					class="cart-rt-dtl totitem">5</span></a></li>\
 		<li><a href="javascript:void(0)" onClick="nextpage(\'my-address-list.html\')"><span class="sidbar-icon"><img src="images/address-icon.png" alt=""></span>Addresses</a></li>\
 		<li><a href="javascript:void(0)" onClick="nextpage(\'edit-account.html\')"><span class="sidbar-icon"><img src="images/account-detail.png" alt=""></span>Account details</a></li>\
+	<li><a href="javascript:void(0)" onClick="nextpage(\'cbd-dosage-calculator.html\')"><span class="sidbar-icon"><img src="images/calculator.png" alt=""></span>CBD Dosage Calculator</a></li>\
 	<li><a href="javascript:void(0)" onClick="nextpage(\'contact-us.html\')"><span class="sidbar-icon"><img src="images/contact-us.png" alt=""></span>Contact us</a></li>\
 	</ul>';
 	

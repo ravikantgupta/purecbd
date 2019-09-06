@@ -2,6 +2,7 @@ function setcategorydropdown(data)
 {
 	var drrodownhtml='<option value="">Select categories</option>';
 	var shopbycategory='';
+	
 	  $.each(data.category, function(index) {
            
             drrodownhtml+='<option value="'+data.category[index].slug+'">'+data.category[index].name+'</option>';
@@ -19,7 +20,8 @@ function setcategorydropdown(data)
                                 <span class="category-cbd-icon"><i class="fa fa-arrow-right"\
                                         aria-hidden="true"></i></span>\
                             </div></a></div></div>';
-		
+							
+			
 		});
 		
 		jQuery('#productcategory').html(drrodownhtml);
@@ -44,8 +46,31 @@ function setcategorydropdown(data)
 
             }
         }); 
+		
+    		
 }
-
+function leftcategorymenu(data)
+{
+	var catmenu='';
+	  $.each(data.category, function(index) {
+           					
+			catmenu+='<li><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].slug+'\')">-&nbsp;'+data.category[index].name+'</a>';	
+    			if((data.category[index].subcat).length)
+				{
+					catmenu+='<ul class="dropdown">';
+					$.each(data.category[index].subcat, function(index1) {
+						
+					catmenu+='<li><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].subcat[index1].slug+'\')">&nbsp;--&nbsp;'+data.category[index].subcat[index1].name+'</a></li>';	
+    		
+					});
+					
+					catmenu+='</ul>';
+				}
+		   catmenu+='</li>';
+		});
+		
+	 jQuery('#catlist').html(catmenu);	
+}	
 function categoryproducts(catslug)
 {
 	 window.localStorage.setItem("current_cat_slug", catslug);

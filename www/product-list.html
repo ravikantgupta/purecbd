@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>delicery</title>
+    <title>pure cbd</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link
         href="https://fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin-ext,vietnamese"
@@ -22,7 +21,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/lightbox.css">
+   
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -41,6 +40,7 @@
 		    
 			   jQuery('.catlist').remove();
 			   jQuery('#lodinggif').show();
+			   
 		     $.ajax({	    	
 			           type:'POST',						
 						url:"https://purecbdgroup.com/api.php/productlist",
@@ -81,12 +81,60 @@
 						   prolisthtml+='</div></div></section>';	
 						    jQuery('#lodinggif').hide();
                            jQuery('#mySidenav').before( prolisthtml);
+						   
+						   var subcat='';
+						   $.each(data.subcat, function(index) {
+						      subcat+='<div class="item">\
+											<div class="header-produc-box" onClick="categoryproductsCat(\''+data.subcat[index].slug+'\')">\
+												<h5>'+data.subcat[index].name+'</h5>\
+											</div>\
+										</div>';
+						       });
+							   
+							if(subcat!='')
+                              {
+							    jQuery('#sbcatcntr').html('<div id="subcatlist" class="cbd-header-product1">'+subcat+'</div>');
+								  jQuery('#subcatlist').owlCarousel({
+										loop: true,
+										margin: 10,
+										nav: false,
+										dots: false,
+										autoplay: true,
+										autoplayTimeout: 5000,
+										autoplayHoverPause: true,
+										responsive: {
+											0: {
+												items: 3
+											},
+											600: {
+												items: 3
+											},
+											990: {
+												items: 3
+											},
+
+										}
+									});
+							  }							
 						},
 						error: function(e) {
 							alert('Error: ' + e.message);
 						}
 				});
 		   
+		   
+		   /***********Load category**************/
+		  $.ajax({	    	
+				  type:'GET',					
+				  url:"https://purecbdgroup.com/api.php/category",					
+				 success:function(data){
+				  setcategorydropdown(data);
+				  leftcategorymenu(data);
+				 },
+				 error: function(e) {
+					//alert('UError: ' + e.message);
+				  }
+				  });
 		}   
 
 </script>
@@ -106,39 +154,10 @@
         </div>
     </div>
     <section class="cbd-nav-header">
-        <div class="container">
-            <div class="cbd-header-product">
-                <div class="item">
-                    <div class="header-produc-box">
-                        <h5>cbd oil</h5>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="header-produc-box">
-                        <h5>cbd edibles</h5>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="header-produc-box">
-                        <h5>cbd topicals</h5>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="header-produc-box">
-                        <h5>cbd oil</h5>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="header-produc-box">
-                        <h5>cbd edibles</h5>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="header-produc-box">
-                        <h5>cbd topicals</h5>
-                    </div>
-                </div>
-            </div>
+        <div class="container" id="sbcatcntr">
+            
+             			
+           
         </div>
     </section>
 
@@ -166,33 +185,8 @@
      <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/lightbox-plus-jquery.min.js"></script>
+   
     <script src="js/owl.carousel.js"></script>
-
-    <script>
-        $('.cbd-header-product').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 3
-                },
-                600: {
-                    items: 3
-                },
-                990: {
-                    items: 3
-                },
-
-            }
-        });
-    </script>
-
 </body>
 
 </html>
