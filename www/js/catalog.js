@@ -57,10 +57,12 @@ function leftcategorymenu(data)
 			catmenu+='<li><a href="javascript:void(0)" onClick="categoryproductsCat(\''+data.category[index].slug+'\')">-&nbsp;'+data.category[index].name+'</a>';	
     			if((data.category[index].subcat).length)
 				{
-					catmenu+='<ul class="dropdown">';
+					catmenu+='<span class="plush-2"><i class="fa fa-plus"\
+                                    aria-hidden="true"></i></span>';
+					catmenu+='<ul class="sidbar-olist-iner-box">';
 					$.each(data.category[index].subcat, function(index1) {
 						
-					catmenu+='<li><a href="javascript:void(0)" onClick="categoryproducts(\''+data.category[index].subcat[index1].slug+'\')">&nbsp;--&nbsp;'+data.category[index].subcat[index1].name+'</a></li>';	
+					catmenu+='<li><a href="javascript:void(0)" onClick="categoryproducts(\''+data.category[index].subcat[index1].slug+'\')">-&nbsp;'+data.category[index].subcat[index1].name+'</a></li>';	
     		
 					});
 					
@@ -69,7 +71,17 @@ function leftcategorymenu(data)
 		   catmenu+='</li>';
 		});
 		
-	 jQuery('#catlist').html(catmenu);	
+	 jQuery('#catlist').html(catmenu);
+
+     jQuery(".plush").click(function () {
+            jQuery(".sidbar-olist").toggle("slow");
+
+        });
+
+        jQuery(".plush-2").click(function () {
+            jQuery(this).parent().find('.sidbar-olist-iner-box').toggle("slow");
+
+        });	 
 }	
 function leftcategorymenuCat(data)
 {

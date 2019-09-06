@@ -760,8 +760,12 @@ section.cbd-nav-header {
 .sidbar-listing li {
     list-style: none;
 }
-.sidbar-olist {
+.sidbar-olist, .sidbar-olist-iner-box {
     padding-left: 50px;
+    display: none;
+}
+.sidbar-olist-iner-box li a {
+    padding: 4px 10px;
 }
 ol.sidbar-olist li a {
     padding: 5px 3px;
@@ -780,6 +784,20 @@ ol.sidbar-olist li a {
     padding-left: 10px;
     position: relative;
 }
+
+.plush, .plush-2 {
+    float: right;
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+.sidbar-olist-iner-box {
+    display: none;
+}
+
+
 .sidbar-listing:after {
     content: '';
     position: absolute;

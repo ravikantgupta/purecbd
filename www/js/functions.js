@@ -49,7 +49,7 @@ function main()
 			<span>'+window.localStorage.getItem("login_user_name")+'</span></div></a>\
 		<ul class="sidbar-listing">\
 		<li><a href="javascript:void(0)"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
-				Category</a>\
+				Category <span class="plush"><i class="fa fa-plus" aria-hidden="true"></i></span></a>\
 			<ol id="catlist" class="sidbar-olist">\
 				<li><a href="javascript:void(0)" onClick="categoryproducts(\'cbd-bath-body\')">-&nbsp;CBD Bath & Body</a></li>\
 				<li><a href="javascript:void(0)" onClick="categoryproducts(\'cbd-beverages\')">-&nbsp;CBD Beverages</a></li>\
@@ -71,6 +71,11 @@ function main()
 				   </div>';	
 
 			 jQuery('#sidenavcontainer').html(menuhtm);
+			 jQuery(document).on('click', function (e) {    
+    if (jQuery(e.target).closest(".fa").length === 0) {
+        closeNav();
+    }
+   });
 	 }else
 	 {
 		 nextpage('login.html');
@@ -86,7 +91,7 @@ function catmain()
 			<span>'+window.localStorage.getItem("login_user_name")+'</span></div></a>\
 		<ul class="sidbar-listing">\
 		<li><a href="javascript:void(0)"><span class="sidbar-icon"><img src="images/list8.jpg" alt=""></span>Product By\
-				Category</a>\
+				Category <span class="plush"><i class="fa fa-plus" aria-hidden="true"></i></span></a>\
 			<ol id="catlist" class="sidbar-olist">\
 				<li><a href="javascript:void(0)" onClick="categoryproductsCat(\'cbd-bath-body\')">-&nbsp;CBD Bath & Body</a></li>\
 				<li><a href="javascript:void(0)" onClick="categoryproductsCat(\'cbd-beverages\')">-&nbsp;CBD Beverages</a></li>\
@@ -120,6 +125,13 @@ function catmain()
 				}
 
 			 jQuery('#sidenavcontainer').html(menuhtm);
+			 
+			 
+			 jQuery(document).on('click', function (e) {    
+    if (jQuery(e.target).closest(".fa").length === 0) {
+        closeNav();
+    }
+   });
 
 }
 
