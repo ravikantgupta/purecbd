@@ -71,6 +71,7 @@ function main()
 				   </div>';	
 
 			 jQuery('#sidenavcontainer').html(menuhtm);
+			 
 			 jQuery(document).on('click', function (e) {    
 				if (jQuery(e.target).closest(".fa").length === 0) {
 					closeNav();

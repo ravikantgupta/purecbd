@@ -74,13 +74,23 @@ function leftcategorymenu(data)
 	 jQuery('#catlist').html(catmenu);
 
      jQuery(".plush").click(function () {
+		 if($(this).children().hasClass('fa-plus')) {
+				$(this).children().removeClass('fa-plus').addClass('fa-minus');
+			}else {
+				$(this).children().removeClass('fa-minus').addClass('fa-plus');
+			}
             jQuery(".sidbar-olist").toggle("slow");
 
         });
-        jQuery(".plush-2").click(function () {
+       jQuery(".plush-2").click(function () {
+			if($(this).children().hasClass('fa-plus')) {
+				$(this).children().removeClass('fa-plus').addClass('fa-minus');
+			}else {
+				$(this).children().removeClass('fa-minus').addClass('fa-plus');
+			}
             jQuery(this).parent().find('.sidbar-olist-iner-box').toggle("slow");
 
-        });	 
+        });		 
 }	
 function leftcategorymenuCat(data)
 {
@@ -107,13 +117,23 @@ function leftcategorymenuCat(data)
 	 jQuery('#catlist').html(catmenu);	
 	 
 	  jQuery(".plush").click(function () {
+		  if($(this).children().hasClass('fa-plus')) {
+				$(this).children().removeClass('fa-plus').addClass('fa-minus');
+			}else {
+				$(this).children().removeClass('fa-minus').addClass('fa-plus');
+			}
             jQuery(".sidbar-olist").toggle("slow");
 
         });
         jQuery(".plush-2").click(function () {
+			if($(this).children().hasClass('fa-plus')) {
+				$(this).children().removeClass('fa-plus').addClass('fa-minus');
+			}else {
+				$(this).children().removeClass('fa-minus').addClass('fa-plus');
+			}
             jQuery(this).parent().find('.sidbar-olist-iner-box').toggle("slow");
 
-        });	
+        });		
 }
 function categoryproducts(catslug)
 {

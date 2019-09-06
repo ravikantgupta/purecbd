@@ -704,6 +704,7 @@ a:hover {
         z-index: 100;
         top: 0;
         left: 0;
+		bottom:0;
         background-color: rgba(0,0,0,0.5);
         overflow-x: hidden;
         transition: 0.5s;
@@ -711,10 +712,9 @@ a:hover {
     }
 
     .sidbar-box-head {
-        width: 80%;
+            width: 300px;
         background-color: #c99021;
         position: relative;
-        min-height: 100vh;
         height: 100%;
     }
     .sidenav a {
@@ -786,8 +786,8 @@ a:hover {
     .sidbar-listing {
         padding-left: 10px;
         position: relative;
-/*    max-height: 100vh;
-/* height: 86vh; */*/
+background-color: #c99021;
+    margin-bottom: 0;
 }
 
 .plush {
@@ -824,6 +824,7 @@ a:hover {
     bottom: -6px;
     height: 1px;
     left: 0;
+	display:none;
 }
 .cart-rt-dtl {
     display: inline-block;
@@ -861,8 +862,8 @@ a:hover {
 }
 .logout {
     text-align: right;
-    position: absolute;
-    right: 7px;
+    position: fixed;
+    left: 188px;
     bottom: 10px;
 }
 .logout a {
@@ -873,8 +874,6 @@ a:hover {
 }
 .sidbar-olist-iner-box {
  padding-left: 20px;
- max-height: 130px;
- overflow: scroll;
 }
 .logout a span {
     font-size: 17px;
