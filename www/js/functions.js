@@ -72,8 +72,11 @@ function main()
 
 			 jQuery('#sidenavcontainer').html(menuhtm);
 			 
-			 jQuery(document).on('click', function (e) {    
-				if (jQuery(e.target).closest(".fa").length === 0) {
+			 jQuery(document).on('click', function (e) { 
+                				 
+				if (jQuery(e.target).closest(".fa").length===0 &&
+				       jQuery(e.target).closest(".plush-2").length === 0 &&
+					   jQuery(e.target).closest(".plush").length===0) {
 					closeNav();
 				}
 			   });
@@ -128,8 +131,11 @@ function catmain()
 			 jQuery('#sidenavcontainer').html(menuhtm);
 			 
 			 
-			 jQuery(document).on('click', function (e) {    
-				if (jQuery(e.target).closest(".fa").length === 0) {
+			 jQuery(document).on('click', function (e) {  
+                 			 
+				if (jQuery(e.target).closest(".fa").length===0 &&
+				       jQuery(e.target).closest(".plush-2").length === 0 &&
+					   jQuery(e.target).closest(".plush").length===0) {
 					closeNav();
 				}
 			   });

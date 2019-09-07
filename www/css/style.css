@@ -773,6 +773,7 @@ a:hover {
     ol.sidbar-olist li a {
         padding: 5px 3px;
         margin: 0;
+		width: 80%;
     }
 /* ol.sidbar-olist li a:hover {
     color: #000;
@@ -810,6 +811,10 @@ background-color: #c99021;
     right: 10px;
     top: 0;
     color: #fff;
+	width: 19%;
+}
+.plush-2 .fa{
+	float: right !important;
 }
 .sidbar-olist-iner-box {
     display: none;
